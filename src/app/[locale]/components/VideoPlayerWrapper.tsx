@@ -15,7 +15,7 @@ function VideoPlayerWrapper() {
   const mouseAccess = false;
 
   const videoConfig: VideoProps = {
-    playing: true,
+    playing: false,
     mute: true,
     loop: false,
     controls: false,
