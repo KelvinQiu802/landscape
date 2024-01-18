@@ -5,6 +5,7 @@ import style from './MainApp.module.css';
 import Window from './general/Window';
 import { OnProgressProps } from 'react-player/base';
 import VideoPlayerWrapper from './VideoPlayerWrapper';
+import { VideoProps } from './VideoBackground';
 
 interface Props {
   'window-title': string;
@@ -21,6 +22,20 @@ function MainApp(props: Props) {
   const onVideoEnded = () => {};
   const onVideoError = () => {};
 
+  const mouseAccess = false;
+  const videoConfig: VideoProps = {
+    playing: false,
+    mute: true,
+    loop: false,
+    controls: false,
+    volume: 1,
+    url: 'https://www.youtube.com/watch?v=u9vK5utTcxE',
+    onVideoReady,
+    onVideoEnded,
+    onVideoError,
+    onVideoProgress,
+  };
+
   return (
     <>
       <div className={style.top}>
@@ -35,6 +50,8 @@ function MainApp(props: Props) {
         onVideoError={onVideoError}
         onVideoProgress={onVideoProgress}
         onVideoReady={onVideoReady}
+        videoConfig={videoConfig}
+        mouseAccess={mouseAccess}
       />
     </>
   );

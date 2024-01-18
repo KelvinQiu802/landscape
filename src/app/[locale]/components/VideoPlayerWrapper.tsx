@@ -11,6 +11,8 @@ interface Props {
   onVideoEnded: () => void;
   onVideoError: () => void;
   onVideoProgress: (state: OnProgressProps) => void;
+  videoConfig: VideoProps;
+  mouseAccess: boolean;
 }
 
 function VideoPlayerWrapper({
@@ -18,21 +20,9 @@ function VideoPlayerWrapper({
   onVideoError,
   onVideoProgress,
   onVideoReady,
+  mouseAccess,
+  videoConfig,
 }: Props) {
-  const mouseAccess = false;
-
-  const videoConfig: VideoProps = {
-    playing: false,
-    mute: true,
-    loop: false,
-    controls: false,
-    volume: 1,
-    url: 'https://www.youtube.com/watch?v=u9vK5utTcxE',
-    onVideoReady,
-    onVideoEnded,
-    onVideoError,
-    onVideoProgress,
-  };
   return (
     <div className={`${style.video} ${!mouseAccess && style.disabledMouse}`}>
       <VideoBackground {...videoConfig} />
