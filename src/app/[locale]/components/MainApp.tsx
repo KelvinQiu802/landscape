@@ -14,6 +14,7 @@ function MainApp(props: Props) {
   const [isReady, setIsReady] = useState(false);
 
   const onVideoReady = () => {
+    console.log('Ready');
     setIsReady(true);
   };
   const onVideoProgress = (state: OnProgressProps) => {};
@@ -23,7 +24,9 @@ function MainApp(props: Props) {
   return (
     <>
       <div className={style.top}>
-        <Window className={style.mainWindow}>
+        <Window
+          className={`${style.mainWindow} ${isReady ? '' : style.hidden}`}
+        >
           <div className="window-title">{props['window-title']}</div>
         </Window>
       </div>

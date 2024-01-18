@@ -6,4 +6,5 @@
   background: var(--Windows-Glass, rgba(128, 128, 128, 0.3));
   background-blend-mode: luminosity;
   backdrop-filter: blur(50px);
+  transition: all 0.4s ease-out;
 }

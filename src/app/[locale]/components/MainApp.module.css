@@ -22,3 +22,7 @@
   width: 60%;
   height: 60%;
 }
+
+.hidden {
+  opacity: 0;
+}
