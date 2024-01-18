@@ -6,6 +6,7 @@ import Window from './general/Window';
 import { OnProgressProps } from 'react-player/base';
 import VideoPlayerWrapper from './VideoPlayerWrapper';
 import { VideoProps } from './VideoBackground';
+import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 
 interface Props {
   'window-title': string;
@@ -15,6 +16,16 @@ function MainApp(props: Props) {
   const [isReady, setIsReady] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+
+  const handleFullScreen = useFullScreenHandle();
+
+  const toggleFullScreen = () => {
+    if (handleFullScreen.active) {
+      handleFullScreen.exit();
+    } else {
+      handleFullScreen.enter();
+    }
+  };
 
   const onVideoReady = () => {
     console.log('Ready');
@@ -39,7 +50,7 @@ function MainApp(props: Props) {
   };
 
   return (
-    <>
+    <FullScreen handle={handleFullScreen}>
       <div className={style.top}>
         <Window
           className={`${style.mainWindow} ${isReady ? '' : style.hidden}`}
@@ -47,6 +58,7 @@ function MainApp(props: Props) {
           <div className="window-title">{props['window-title']}</div>
           <button onClick={() => setIsPlaying((prev) => !prev)}>Play</button>
           <button onClick={() => setIsMuted((prev) => !prev)}>Mute</button>
+          <button onClick={toggleFullScreen}>FullScreen</button>
         </Window>
       </div>
       <VideoPlayerWrapper
@@ -57,7 +69,7 @@ function MainApp(props: Props) {
         videoConfig={videoConfig}
         mouseAccess={mouseAccess}
       />
-    </>
+    </FullScreen>
   );
 }
 
