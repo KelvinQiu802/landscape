@@ -9,12 +9,7 @@ export default createMiddleware({
   defaultLocale: 'en',
 });
 
-/* Turn ['en', 'zh'] into 'en|zh' */
-function getLocalsString(locales: string[]) {
-  return locales.join('|');
-}
-
 export const config = {
   // Match only internationalized pathnames
-  matcher: ['/', `/(${getLocalsString(locales)})/:path*`],
+  matcher: ['/', `/(en|zh)/:path*`],
 };
