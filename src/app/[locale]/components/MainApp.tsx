@@ -13,6 +13,8 @@ interface Props {
 
 function MainApp(props: Props) {
   const [isReady, setIsReady] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isMuted, setIsMuted] = useState(true);
 
   const onVideoReady = () => {
     console.log('Ready');
@@ -24,8 +26,8 @@ function MainApp(props: Props) {
 
   const mouseAccess = false;
   const videoConfig: VideoProps = {
-    playing: false,
-    mute: true,
+    playing: isPlaying,
+    mute: isMuted,
     loop: false,
     controls: false,
     volume: 1,
@@ -43,6 +45,8 @@ function MainApp(props: Props) {
           className={`${style.mainWindow} ${isReady ? '' : style.hidden}`}
         >
           <div className="window-title">{props['window-title']}</div>
+          <button onClick={() => setIsPlaying((prev) => !prev)}>Play</button>
+          <button onClick={() => setIsMuted((prev) => !prev)}>Mute</button>
         </Window>
       </div>
       <VideoPlayerWrapper
