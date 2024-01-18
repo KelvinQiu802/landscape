@@ -1,6 +1,6 @@
 .window {
   border-radius: 46px;
-  padding: 26px;
+  padding: 28px;
   border: 1px solid
     var(--windows-stroke-glass-specular, rgba(255, 255, 255, 0.4));
   background: var(--Windows-Glass, rgba(128, 128, 128, 0.3));

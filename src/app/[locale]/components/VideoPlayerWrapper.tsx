@@ -1,17 +1,24 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import style from './MainApp.module.css';
 import VideoBackground from './VideoBackground';
 import { OnProgressProps } from 'react-player/base';
 import { VideoProps } from './VideoBackground';
 
-function VideoPlayerWrapper() {
-  const onVideoReady = () => {};
-  const onVideoProgress = (state: OnProgressProps) => {};
-  const onVideoEnded = () => {};
-  const onVideoError = () => {};
+interface Props {
+  onVideoReady: () => void;
+  onVideoEnded: () => void;
+  onVideoError: () => void;
+  onVideoProgress: (state: OnProgressProps) => void;
+}
 
+function VideoPlayerWrapper({
+  onVideoEnded,
+  onVideoError,
+  onVideoProgress,
+  onVideoReady,
+}: Props) {
   const mouseAccess = false;
 
   const videoConfig: VideoProps = {

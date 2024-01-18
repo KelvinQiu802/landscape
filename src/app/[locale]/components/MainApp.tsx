@@ -1,13 +1,40 @@
-import { useTranslations } from 'next-intl';
-import TopLayer from './TopLayer';
+'use client';
+
+import { useState } from 'react';
+import style from './MainApp.module.css';
+import Window from './general/Window';
+import { OnProgressProps } from 'react-player/base';
 import VideoPlayerWrapper from './VideoPlayerWrapper';
 
-export default function MainApp() {
-  const t = useTranslations('Index');
+interface Props {
+  'window-title': string;
+}
+
+function MainApp(props: Props) {
+  const [isReady, setIsReady] = useState(false);
+
+  const onVideoReady = () => {
+    setIsReady(true);
+  };
+  const onVideoProgress = (state: OnProgressProps) => {};
+  const onVideoEnded = () => {};
+  const onVideoError = () => {};
+
   return (
     <>
-      <TopLayer window-title={t('appName')} />
-      <VideoPlayerWrapper />
+      <div className={style.top}>
+        <Window className={style.mainWindow}>
+          <div className="window-title">{props['window-title']}</div>
+        </Window>
+      </div>
+      <VideoPlayerWrapper
+        onVideoEnded={onVideoEnded}
+        onVideoError={onVideoError}
+        onVideoProgress={onVideoProgress}
+        onVideoReady={onVideoReady}
+      />
     </>
   );
 }
+
+export default MainApp;
