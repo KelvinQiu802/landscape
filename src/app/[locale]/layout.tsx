@@ -1,10 +1,10 @@
-import { ReactNode } from 'react'
+import { ReactNode } from 'react';
 
 interface Props {
-  children: ReactNode
+  children: ReactNode;
   params: {
-    locale: string
-  }
+    locale: string;
+  };
 }
 
 export default function LocaleLayout({ children, params: { locale } }: Props) {
@@ -12,5 +12,5 @@ export default function LocaleLayout({ children, params: { locale } }: Props) {
     <html lang={locale}>
       <body>{children}</body>
     </html>
-  )
+  );
 }
