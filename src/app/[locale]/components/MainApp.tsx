@@ -1,33 +1,13 @@
-'use client';
-
-import VideoBackground, { VideoProps } from './VideoBackground';
-import { OnProgressProps } from 'react-player/base';
-import style from './MainApp.module.css';
+import { useTranslations } from 'next-intl';
+import TopLayer from './TopLayer';
+import VideoPlayerWrapper from './VideoPlayerWrapper';
 
 export default function MainApp() {
-  const onVideoReady = () => {};
-  const onVideoProgress = (state: OnProgressProps) => {};
-  const onVideoEnded = () => {};
-  const onVideoError = () => {};
-
-  const mouseAccess = false;
-
-  const videoConfig: VideoProps = {
-    playing: true,
-    mute: true,
-    loop: false,
-    controls: false,
-    volume: 1,
-    url: 'https://www.youtube.com/watch?v=u9vK5utTcxE',
-    onVideoReady,
-    onVideoEnded,
-    onVideoError,
-    onVideoProgress,
-  };
-
+  const t = useTranslations('Index');
   return (
-    <div className={`${style.video} ${!mouseAccess && style.disabledMouse}`}>
-      <VideoBackground {...videoConfig} />
-    </div>
+    <>
+      <TopLayer window-title={t('appName')} />
+      <VideoPlayerWrapper />
+    </>
   );
 }
