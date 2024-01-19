@@ -12,6 +12,7 @@ import TaskInput from './TaskInput';
 import StartingScreenBtns from './StartingScreenBtns';
 import Timer from './Timer';
 import TopBar from './TopBar';
+import LeftControlBar from './LeftControlBar';
 
 interface Props {
   appName: string;
@@ -27,6 +28,7 @@ function MainApp(props: Props) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [task, setTask] = useState(defaultTask);
+  const [selectedTag, setSelectedTag] = useState(0);
   const handleFullScreen = useFullScreenHandle();
 
   const onVideoReady = () => {
@@ -53,6 +55,10 @@ function MainApp(props: Props) {
   return (
     <FullScreen handle={handleFullScreen}>
       <div className={style.top}>
+        <LeftControlBar
+          selectedTag={selectedTag}
+          setSelectedTag={setSelectedTag}
+        />
         <Window
           className={`${style.mainWindow} ${isReady ? '' : style.hidden}`}
         >
