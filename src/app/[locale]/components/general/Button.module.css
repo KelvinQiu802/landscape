@@ -1,0 +1,40 @@
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-weight: 500;
+  font-size: 1em;
+  padding: 11px 17px;
+  margin: 0;
+  border: none;
+  color: var(--Text-Primary);
+  border-radius: 500px;
+  background: rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+
+.round {
+  padding: 11px 11px;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.btn:active {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.btn:disabled {
+  cursor: default;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  color: var(--Text-Primary);
+}
