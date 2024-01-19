@@ -11,7 +11,7 @@ function Button(props: Props) {
   if (props.label && props.icon) {
     return (
       /* button with label and icon */
-      <button {...props} className={style.btn}>
+      <button {...props} className={`${style.btn} ${props.className}`}>
         <props.icon className={style.icon} />
         {props.label}
       </button>
@@ -19,7 +19,7 @@ function Button(props: Props) {
   } else if (props.label) {
     return (
       /* button with only label */
-      <button {...props} className={style.btn}>
+      <button {...props} className={`${style.btn} ${props.className}`}>
         {props.label}
       </button>
     );
@@ -33,7 +33,7 @@ function Button(props: Props) {
   } else {
     return (
       /* invalid button */
-      <button {...props} className={style.btn}>
+      <button {...props} className={`${style.btn} ${props.className}`}>
         Must have an icon or label
       </button>
     );
