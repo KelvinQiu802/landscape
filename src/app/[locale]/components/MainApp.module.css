@@ -26,3 +26,10 @@
 .hidden {
   opacity: 0;
 }
+
+.central {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}

@@ -7,6 +7,12 @@ import { OnProgressProps } from 'react-player/base';
 import VideoPlayerWrapper from './VideoPlayerWrapper';
 import { VideoProps } from './VideoBackground';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
+import ButtonGroup from './general/ButtonGroup';
+import Button from './general/Button';
+
+import Add from '@mui/icons-material/Add';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import AddLocationIcon from '@mui/icons-material/AddLocation';
 
 interface Props {
   'window-title': string;
@@ -42,7 +48,7 @@ function MainApp(props: Props) {
     loop: false,
     controls: false,
     volume: 1,
-    url: 'https://www.youtube.com/watch?v=u9vK5utTcxE',
+    url: 'https://www.youtube.com/watch?v=p52rNK_7nsg',
     onVideoReady,
     onVideoEnded,
     onVideoError,
@@ -56,9 +62,22 @@ function MainApp(props: Props) {
           className={`${style.mainWindow} ${isReady ? '' : style.hidden}`}
         >
           <div className="window-title">{props['window-title']}</div>
-          <button onClick={() => setIsPlaying((prev) => !prev)}>Play</button>
-          <button onClick={() => setIsMuted((prev) => !prev)}>Mute</button>
-          <button onClick={toggleFullScreen}>FullScreen</button>
+          <div className={style.central}>
+            <ButtonGroup hideBackground>
+              <Button
+                label="Play"
+                icon={Add}
+                onClick={() => setIsPlaying((prev) => !prev)}
+              />
+              <Button
+                label="Mute"
+                icon={AccessTimeIcon}
+                onClick={() => setIsMuted((prev) => !prev)}
+              />
+              <Button label="FullScreen" onClick={toggleFullScreen} />
+              <Button icon={AddLocationIcon} />
+            </ButtonGroup>
+          </div>
         </Window>
       </div>
       <VideoPlayerWrapper
