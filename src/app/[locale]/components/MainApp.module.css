@@ -27,12 +27,6 @@
   opacity: 0;
 }
 
-.topBar {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-}
-
 .central {
   position: relative;
   bottom: 30px;
@@ -50,18 +44,6 @@
   align-items: center;
 }
 
-.time {
-  color: var(--Text-Primary);
-  font-size: 10em;
-}
-
 .task {
   width: 40%;
-}
-
-.taskInput {
-  text-align: center;
-  color: var(--Text-Primary);
-  font-size: 1.4em;
-  margin-bottom: 5px;
 }

@@ -1,0 +1,6 @@
+.taskInput {
+  text-align: center;
+  color: var(--Text-Primary);
+  font-size: 1.4em;
+  margin-bottom: 5px;
+}
