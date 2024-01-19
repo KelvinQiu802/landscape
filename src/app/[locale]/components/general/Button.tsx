@@ -5,13 +5,19 @@ import { SvgIconProps } from '@mui/material/SvgIcon';
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string;
   icon?: FC<SvgIconProps>;
+  hideBg?: boolean;
 }
 
 function Button(props: Props) {
   if (props.label && props.icon) {
     return (
       /* button with label and icon */
-      <button {...props} className={`${style.btn} ${props.className}`}>
+      <button
+        {...props}
+        className={`${style.btn} ${props.hideBg ? style.hideBg : ''} ${
+          props.className
+        }`}
+      >
         <props.icon className={style.icon} />
         {props.label}
       </button>
@@ -19,21 +25,36 @@ function Button(props: Props) {
   } else if (props.label) {
     return (
       /* button with only label */
-      <button {...props} className={`${style.btn} ${props.className}`}>
+      <button
+        {...props}
+        className={`${style.btn} ${props.hideBg ? style.hideBg : ''} ${
+          props.className
+        }`}
+      >
         {props.label}
       </button>
     );
   } else if (props.icon) {
     return (
       /* button with only icon */
-      <button {...props} className={`${style.btn} ${style.round}`}>
+      <button
+        {...props}
+        className={`${style.btn} ${props.hideBg ? style.hideBg : ''} ${
+          style.round
+        }`}
+      >
         <props.icon className={style.icon} />
       </button>
     );
   } else {
     return (
       /* invalid button */
-      <button {...props} className={`${style.btn} ${props.className}`}>
+      <button
+        {...props}
+        className={`${style.btn} ${props.hideBg ? style.hideBg : ''} ${
+          props.className
+        }`}
+      >
         Must have an icon or label
       </button>
     );
