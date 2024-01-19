@@ -25,6 +25,7 @@ function MainApp(props: Props) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [selectedTag, setSelectedTag] = useState(0);
+  const [time, setTime] = useState(1500);
   const handleFullScreen = useFullScreenHandle();
 
   const onVideoReady = () => {
@@ -58,6 +59,8 @@ function MainApp(props: Props) {
         <Window className={`${style.mainWindow} `}>
           <TopBar appName={props.appName} />
           <TimerPage
+            time={time}
+            setTime={setTime}
             defaultTask={defaultTask}
             setIsPlaying={setIsPlaying}
             handleFullScreen={handleFullScreen}

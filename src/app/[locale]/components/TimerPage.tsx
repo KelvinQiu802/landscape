@@ -13,6 +13,8 @@ interface Props {
   clockMode: string;
   fullScreen: string;
   focus: string;
+  time: number;
+  setTime: Dispatch<SetStateAction<number>>;
 }
 
 function TimerPage({
@@ -22,6 +24,8 @@ function TimerPage({
   fullScreen,
   clockMode,
   focus,
+  time,
+  setTime,
 }: Props) {
   const [task, setTask] = useState(defaultTask);
   return (
@@ -31,7 +35,7 @@ function TimerPage({
         <Seperator width="100%" />
       </div>
       <div className={style.timer}>
-        <Timer />
+        <Timer time={time} setTime={setTime} />
       </div>
       <StartingScreenBtns
         setIsPlaying={setIsPlaying}
