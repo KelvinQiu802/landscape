@@ -17,6 +17,8 @@ import WatchLaterIcon from '@mui/icons-material/WatchLater';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import Seperator from './general/Seperator';
 import TransparentInput from './general/TransparentInput';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 interface Props {
   'window-title': string;
@@ -68,7 +70,13 @@ function MainApp(props: Props) {
         <Window
           className={`${style.mainWindow} ${isReady ? '' : style.hidden}`}
         >
-          <div className="window-title">{props['window-title']}</div>
+          <div className={style.topBar}>
+            <div className="window-title">{props['window-title']}</div>
+            <ButtonGroup hideBackground style={{ padding: 0 }}>
+              <Button icon={GitHubIcon} />
+              <Button icon={FavoriteIcon} />
+            </ButtonGroup>
+          </div>
           <div className={style.central}>
             <div className={style.task}>
               <TransparentInput
