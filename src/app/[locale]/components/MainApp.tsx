@@ -7,12 +7,9 @@ import { OnProgressProps } from 'react-player/base';
 import VideoPlayerWrapper from './VideoPlayerWrapper';
 import { VideoProps } from './VideoBackground';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
-import Seperator from './general/Seperator';
-import TaskInput from './TaskInput';
-import StartingScreenBtns from './StartingScreenBtns';
-import Timer from './Timer';
 import TopBar from './TopBar';
 import LeftControlBar from './LeftControlBar';
+import TimerPage from './TimerPage';
 
 interface Props {
   appName: string;
@@ -27,7 +24,6 @@ function MainApp(props: Props) {
   const [isReady, setIsReady] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
-  const [task, setTask] = useState(defaultTask);
   const [selectedTag, setSelectedTag] = useState(0);
   const handleFullScreen = useFullScreenHandle();
 
@@ -61,24 +57,12 @@ function MainApp(props: Props) {
         />
         <Window className={`${style.mainWindow} `}>
           <TopBar appName={props.appName} />
-          <div className={style.central}>
-            <div className={style.task}>
-              <TaskInput
-                task={task}
-                setTask={setTask}
-                defaultTask={defaultTask}
-              />
-              <Seperator width="100%" />
-            </div>
-            <div className={style.timer}>
-              <Timer />
-            </div>
-            <StartingScreenBtns
-              setIsPlaying={setIsPlaying}
-              handleFullScreen={handleFullScreen}
-              {...props}
-            />
-          </div>
+          <TimerPage
+            defaultTask={defaultTask}
+            setIsPlaying={setIsPlaying}
+            handleFullScreen={handleFullScreen}
+            {...props}
+          />
         </Window>
       </div>
       <VideoPlayerWrapper
