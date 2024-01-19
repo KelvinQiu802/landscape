@@ -3,6 +3,7 @@
   --Windows-Glass: rgba(128, 128, 128, 0.3);
   --windows-stroke-glass-specular: rgba(255, 255, 255, 0.4);
   --Text-Primary: rgba(255, 255, 255, 0.96);
+  --Seperator: rgba(255, 255, 255, 0.1);
 }
 
 * {
