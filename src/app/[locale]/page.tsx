@@ -7,7 +7,13 @@ export default function Home() {
   const t = useTranslations('Index');
   return (
     <div>
-      <MainApp window-title={t('appName')} />
+      <MainApp
+        appName={t('appName')}
+        task={t('task')}
+        focus={t('focus')}
+        clockMode={t('clockMode')}
+        fullScreen={t('fullScreen')}
+      />
     </div>
   );
 }

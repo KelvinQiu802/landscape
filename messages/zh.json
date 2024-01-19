@@ -1,6 +1,10 @@
 {
   "Index": {
     "title": "你好",
-    "appName": "Landscape Pomodoro"
+    "appName": "沉浸番茄",
+    "task": "在这个番茄中准备做点什么？",
+    "focus": "专注",
+    "clockMode": "时钟模式",
+    "fullScreen": "切换全屏"
   }
 }

@@ -1,6 +1,10 @@
 {
   "Index": {
     "title": "Hello World",
-    "appName": "Landscape Pomodoro"
+    "appName": "Landscape Pomodoro",
+    "task": "What is your task for this pomodoro?",
+    "focus": "Focus",
+    "clockMode": "Clock Mode",
+    "fullScreen": "Full Screen"
   }
 }

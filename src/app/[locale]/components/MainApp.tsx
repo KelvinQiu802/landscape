@@ -21,14 +21,19 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
 interface Props {
-  'window-title': string;
+  appName: string;
+  task: string;
+  focus: string;
+  clockMode: string;
+  fullScreen: string;
 }
 
 function MainApp(props: Props) {
+  const defaultTask = props.task;
   const [isReady, setIsReady] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
-  const [task, setTask] = useState('What is your task for this pomodoro?');
+  const [task, setTask] = useState(defaultTask);
 
   const timer = '25:00';
 
@@ -43,7 +48,6 @@ function MainApp(props: Props) {
   };
 
   const onVideoReady = () => {
-    console.log('Ready');
     setIsReady(true);
   };
   const onVideoProgress = (state: OnProgressProps) => {};
@@ -71,7 +75,7 @@ function MainApp(props: Props) {
           className={`${style.mainWindow} ${isReady ? '' : style.hidden}`}
         >
           <div className={style.topBar}>
-            <div className="window-title">{props['window-title']}</div>
+            <div className="window-title">{props.appName}</div>
             <ButtonGroup hideBackground style={{ padding: 0 }}>
               <Button icon={GitHubIcon} />
               <Button icon={FavoriteIcon} />
@@ -94,17 +98,17 @@ function MainApp(props: Props) {
             </div>
             <ButtonGroup hideBackground>
               <Button
-                label="Focus"
+                label={props.focus}
                 icon={PlayCircleFilledWhiteIcon}
                 onClick={() => setIsPlaying((prev) => !prev)}
               />
-              <Button label="Clock Mode" icon={WatchLaterIcon} />
+              <Button label={props.clockMode} icon={WatchLaterIcon} />
               {/* <Button
                 label="Mute"
                 onClick={() => setIsMuted((prev) => !prev)}
               /> */}
               <Button
-                label="Full Screen"
+                label={props.fullScreen}
                 icon={FullscreenIcon}
                 onClick={toggleFullScreen}
               />
