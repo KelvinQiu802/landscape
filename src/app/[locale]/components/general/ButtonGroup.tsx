@@ -5,15 +5,16 @@ import Window from './Window';
 interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   hideBackground?: boolean;
+  vertical?: boolean;
 }
 
-function ButtonGroup({ children, hideBackground, ...props }: Props) {
+function ButtonGroup({ children, hideBackground, vertical, ...props }: Props) {
   return (
     <Window
       {...props}
-      className={`${style.group} ${hideBackground ? style.hideBg : ''} ${
-        props.className
-      }`}
+      className={`${style.group} ${vertical ? style.vertical : ''} ${
+        hideBackground ? style.hideBg : ''
+      } ${props.className}`}
     >
       {children}
     </Window>

@@ -4,6 +4,10 @@
   padding: 11px;
 }
 
+.vertical {
+  flex-direction: column;
+}
+
 .hideBg {
   border: none;
   background: none;
