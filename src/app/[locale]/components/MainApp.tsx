@@ -15,6 +15,8 @@ import Remove from '@mui/icons-material/Remove';
 import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
+import Seperator from './general/Seperator';
+import TransparentInput from './general/TransparentInput';
 
 interface Props {
   'window-title': string;
@@ -24,6 +26,7 @@ function MainApp(props: Props) {
   const [isReady, setIsReady] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+  const [task, setTask] = useState('What is your task for this pomodoro?');
 
   const timer = '25:00';
 
@@ -67,6 +70,15 @@ function MainApp(props: Props) {
         >
           <div className="window-title">{props['window-title']}</div>
           <div className={style.central}>
+            <div className={style.task}>
+              <TransparentInput
+                type="text"
+                fullWidth
+                className={style.taskInput}
+                value={task}
+              />
+              <Seperator width="100%" />
+            </div>
             <div className={style.timer}>
               <Button icon={Remove} />
               <h1 className={style.time}>{timer}</h1>
