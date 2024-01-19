@@ -8,30 +8,30 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   hideBg?: boolean;
 }
 
-function Button(props: Props) {
-  if (props.label && props.icon) {
+function Button({ hideBg, label, ...props }: Props) {
+  if (label && props.icon) {
     return (
       /* button with label and icon */
       <button
         {...props}
-        className={`${style.btn} ${props.hideBg ? style.hideBg : ''} ${
+        className={`${style.btn} ${hideBg ? style.hideBg : ''} ${
           props.className
         }`}
       >
         <props.icon className={style.icon} />
-        {props.label}
+        {label}
       </button>
     );
-  } else if (props.label) {
+  } else if (label) {
     return (
       /* button with only label */
       <button
         {...props}
-        className={`${style.btn} ${props.hideBg ? style.hideBg : ''} ${
+        className={`${style.btn} ${hideBg ? style.hideBg : ''} ${
           props.className
         }`}
       >
-        {props.label}
+        {label}
       </button>
     );
   } else if (props.icon) {
@@ -39,9 +39,7 @@ function Button(props: Props) {
       /* button with only icon */
       <button
         {...props}
-        className={`${style.btn} ${props.hideBg ? style.hideBg : ''} ${
-          style.round
-        }`}
+        className={`${style.btn} ${hideBg ? style.hideBg : ''} ${style.round}`}
       >
         <props.icon className={style.icon} />
       </button>
@@ -51,7 +49,7 @@ function Button(props: Props) {
       /* invalid button */
       <button
         {...props}
-        className={`${style.btn} ${props.hideBg ? style.hideBg : ''} ${
+        className={`${style.btn} ${hideBg ? style.hideBg : ''} ${
           props.className
         }`}
       >
