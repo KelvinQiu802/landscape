@@ -1,3 +1,11 @@
 .group {
+  display: flex;
+  gap: 20px;
   padding: 11px;
+}
+
+.hideBg {
+  border: none;
+  background: none;
+  backdrop-filter: none;
 }
