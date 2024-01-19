@@ -45,7 +45,7 @@ function MainApp(props: Props) {
     loop: false,
     controls: false,
     volume: 1,
-    url: 'https://www.youtube.com/watch?v=p52rNK_7nsg',
+    url: 'https://www.youtube.com/watch?v=U_KrN18SOYk',
     onVideoReady,
     onVideoEnded,
     onVideoError,
@@ -54,14 +54,12 @@ function MainApp(props: Props) {
 
   return (
     <FullScreen handle={handleFullScreen}>
-      <div className={style.top}>
+      <div className={`${style.top} ${isReady ? '' : style.hidden}`}>
         <LeftControlBar
           selectedTag={selectedTag}
           setSelectedTag={setSelectedTag}
         />
-        <Window
-          className={`${style.mainWindow} ${isReady ? '' : style.hidden}`}
-        >
+        <Window className={`${style.mainWindow} `}>
           <TopBar appName={props.appName} />
           <div className={style.central}>
             <div className={style.task}>
