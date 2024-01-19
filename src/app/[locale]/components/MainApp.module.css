@@ -19,7 +19,7 @@
 }
 
 .mainWindow {
-  width: 60%;
+  width: 55%;
   height: 60%;
 }
 
@@ -29,7 +29,20 @@
 
 .central {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
+}
+
+.timer {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.time {
+  color: #fff;
+  font-size: 10em;
 }

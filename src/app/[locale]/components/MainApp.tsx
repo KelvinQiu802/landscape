@@ -11,8 +11,10 @@ import ButtonGroup from './general/ButtonGroup';
 import Button from './general/Button';
 
 import Add from '@mui/icons-material/Add';
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
-import AddLocationIcon from '@mui/icons-material/AddLocation';
+import Remove from '@mui/icons-material/Remove';
+import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
+import WatchLaterIcon from '@mui/icons-material/WatchLater';
+import FullscreenIcon from '@mui/icons-material/Fullscreen';
 
 interface Props {
   'window-title': string;
@@ -22,6 +24,8 @@ function MainApp(props: Props) {
   const [isReady, setIsReady] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
+
+  const timer = '25:00';
 
   const handleFullScreen = useFullScreenHandle();
 
@@ -63,19 +67,27 @@ function MainApp(props: Props) {
         >
           <div className="window-title">{props['window-title']}</div>
           <div className={style.central}>
+            <div className={style.timer}>
+              <Button icon={Remove} />
+              <h1 className={style.time}>{timer}</h1>
+              <Button icon={Add} />
+            </div>
             <ButtonGroup hideBackground>
               <Button
-                label="Play"
-                icon={Add}
+                label="Focus"
+                icon={PlayCircleFilledWhiteIcon}
                 onClick={() => setIsPlaying((prev) => !prev)}
               />
-              <Button
+              <Button label="Clock Mode" icon={WatchLaterIcon} />
+              {/* <Button
                 label="Mute"
-                icon={AccessTimeIcon}
                 onClick={() => setIsMuted((prev) => !prev)}
+              /> */}
+              <Button
+                label="Full Screen"
+                icon={FullscreenIcon}
+                onClick={toggleFullScreen}
               />
-              <Button label="FullScreen" onClick={toggleFullScreen} />
-              <Button icon={AddLocationIcon} />
             </ButtonGroup>
           </div>
         </Window>
