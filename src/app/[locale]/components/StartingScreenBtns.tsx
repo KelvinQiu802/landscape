@@ -8,7 +8,7 @@ import { FullScreenHandle } from 'react-full-screen';
 
 interface Props {
   handleFullScreen: FullScreenHandle;
-  setIsPlaying: Dispatch<SetStateAction<boolean>>;
+  setIsFocus: Dispatch<SetStateAction<boolean>>;
   focus: string;
   clockMode: string;
   fullScreen: string;
@@ -16,7 +16,7 @@ interface Props {
 
 function StartingScreenBtns({
   handleFullScreen,
-  setIsPlaying,
+  setIsFocus,
   focus,
   clockMode,
   fullScreen,
@@ -34,7 +34,7 @@ function StartingScreenBtns({
       <Button
         label={focus}
         icon={PlayCircleFilledWhiteIcon}
-        onClick={() => setIsPlaying((prev) => !prev)}
+        onClick={() => setIsFocus((prev) => !prev)}
       />
       <Button label={clockMode} icon={WatchLaterIcon} />
       <Button

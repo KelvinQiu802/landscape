@@ -8,7 +8,7 @@ import { FullScreenHandle } from 'react-full-screen';
 
 interface Props {
   defaultTask: string;
-  setIsPlaying: Dispatch<SetStateAction<boolean>>;
+  setIsFocus: Dispatch<SetStateAction<boolean>>;
   handleFullScreen: FullScreenHandle;
   clockMode: string;
   fullScreen: string;
@@ -19,7 +19,7 @@ interface Props {
 
 function TimerPage({
   defaultTask,
-  setIsPlaying,
+  setIsFocus,
   handleFullScreen,
   fullScreen,
   clockMode,
@@ -38,7 +38,7 @@ function TimerPage({
         <Timer time={time} setTime={setTime} />
       </div>
       <StartingScreenBtns
-        setIsPlaying={setIsPlaying}
+        setIsFocus={setIsFocus}
         handleFullScreen={handleFullScreen}
         clockMode={clockMode}
         fullScreen={fullScreen}
