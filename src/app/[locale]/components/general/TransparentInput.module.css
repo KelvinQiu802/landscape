@@ -1,0 +1,13 @@
+.input {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.center {
+  text-align: center;
+}
