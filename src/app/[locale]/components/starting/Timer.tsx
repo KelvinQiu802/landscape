@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction } from 'react';
-import Button from './general/Button';
+import Button from '../general/Button';
 import Add from '@mui/icons-material/Add';
 import Remove from '@mui/icons-material/Remove';
 import style from './Timer.module.css';

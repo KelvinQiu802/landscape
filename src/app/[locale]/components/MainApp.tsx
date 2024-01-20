@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
 import { useEffect, useState } from 'react';
@@ -7,9 +8,9 @@ import { OnProgressProps } from 'react-player/base';
 import VideoPlayerWrapper from './VideoPlayerWrapper';
 import { VideoProps } from './VideoBackground';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
-import TopBar from './TopBar';
-import LeftControlBar from './LeftControlBar';
-import TimerPage from './TimerPage';
+import TopBar from './starting/TopBar';
+import LeftControlBar from './starting/LeftControlBar';
+import TimerPage from './starting/TimerPage';
 import { useTimer } from 'react-timer-hook';
 
 interface Props {

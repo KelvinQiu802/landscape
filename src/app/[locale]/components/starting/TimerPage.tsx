@@ -1,7 +1,7 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
 import style from './TimerPage.module.css';
-import TaskInput from './TaskInput';
-import Seperator from './general/Seperator';
+import TaskInput from '../TaskInput';
+import Seperator from '../general/Seperator';
 import Timer from './Timer';
 import StartingScreenBtns from './StartingScreenBtns';
 import { FullScreenHandle } from 'react-full-screen';
