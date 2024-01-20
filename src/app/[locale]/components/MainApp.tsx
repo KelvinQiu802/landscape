@@ -5,6 +5,7 @@ import Zoom from '@mui/material/Zoom';
 import { useEffect, useState } from 'react';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import { OnProgressProps } from 'react-player/base';
+import { useSound } from 'use-sound';
 import style from './MainApp.module.css';
 import { VideoProps } from './VideoBackground';
 import VideoPlayerWrapper from './VideoPlayerWrapper';
@@ -41,9 +42,11 @@ function MainApp(props: Props) {
   const [showFocusingScreen, setShowFocusingScreen] = useState(false);
   const [showClockModeScreen, setShowClockModeScreen] = useState(false);
   const handleFullScreen = useFullScreenHandle();
+  const [playAlarm] = useSound('/sounds/iphone_ding.mp3', { volume: 1 });
 
   /* set timer */
   const onExpire = () => {
+    playAlarm();
     finishFocus();
   };
   const { totalSeconds, pause, start, resume, isRunning, reset } = useCountdown(
