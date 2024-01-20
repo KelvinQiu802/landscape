@@ -10,6 +10,8 @@
     "pause": "Pause",
     "resume": "Resume",
     "mute": "Mute",
-    "unmute": "Unmute"
+    "unmute": "Unmute",
+    "exit": "Exit",
+    "hideButtons": "Hide Buttons"
   }
 }

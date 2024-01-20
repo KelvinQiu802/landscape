@@ -17,11 +17,13 @@ import { FocusScreenBtnsText } from './focusing/FocusScreenBtns';
 import MediaButtons from './general/MediaButtons';
 import useCountdown from '@/hooks/useCountdown';
 import ClockModeScreen, { ClockScreenProps } from './clockMode/ClockModeScreen';
+import { ClockModeBtnsText } from './clockMode/ClockModeBtns';
 
 interface Props
   extends TopBarProps,
     StartingScreenBtnsText,
-    FocusScreenBtnsText {
+    FocusScreenBtnsText,
+    ClockModeBtnsText {
   task: string;
 }
 
@@ -94,6 +96,12 @@ function MainApp(props: Props) {
     setShowClockModeScreen(true);
     setShowStartingScreen(false);
     setIsPlaying(true);
+  };
+
+  const exitClockMode = () => {
+    setShowClockModeScreen(false);
+    setShowStartingScreen(true);
+    setIsPlaying(false);
   };
 
   /* Youtube config */
@@ -177,7 +185,11 @@ function MainApp(props: Props) {
       {showClockModeScreen && (
         <Zoom in={showClockModeScreen}>
           <div className={style.top}>
-            <ClockModeScreen />
+            <ClockModeScreen
+              toggleFullScreen={toggleFullScreen}
+              exitClockMode={exitClockMode}
+              clockModeText={props.clockModeText}
+            />
           </div>
         </Zoom>
       )}

@@ -23,6 +23,11 @@ export default function Home() {
           unmute: t('unmute'),
           fullScreen: t('fullScreen'),
         }}
+        clockModeText={{
+          eixt: t('exit'),
+          hideButtons: t('hideButtons'),
+          fullScreen: t('fullScreen'),
+        }}
       />
     </div>
   );
