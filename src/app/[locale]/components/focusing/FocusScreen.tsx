@@ -23,7 +23,9 @@ function FocusScreen(props: FocusScreenProps) {
         <Seperator width="100%" />
       </div>
       <div className={timerPageStyle.timer}>
-        <h1 className={timeStyle.time}>{timeToString(props.time)}</h1>
+        <h1 className={`${timeStyle.time} ${style.opacity}`}>
+          {timeToString(props.time)}
+        </h1>
       </div>
       <FocusScreenBtns
         finishFocus={props.finishFocus}
