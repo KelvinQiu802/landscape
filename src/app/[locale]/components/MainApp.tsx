@@ -125,7 +125,14 @@ function MainApp(props: Props) {
       {/* Focusing Screen */}
       {showFocusingScreen && (
         <Fade in={isReady && isFocus}>
-          <FocusScreen time={time} task={} />
+          <div className={style.top}>
+            <FocusScreen
+              time={time}
+              task={task}
+              setTask={setTask}
+              defaultTask={defaultTask}
+            />
+          </div>
         </Fade>
       )}
       <VideoPlayerWrapper
