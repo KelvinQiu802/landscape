@@ -16,6 +16,7 @@ import FocusScreen from './focusing/FocusScreen';
 import { FocusScreenBtnsText } from './focusing/FocusScreenBtns';
 import MediaButtons from './general/MediaButtons';
 import useCountdown from '@/hooks/useCountdown';
+import ClockModeScreen, { ClockScreenProps } from './clockMode/ClockModeScreen';
 
 interface Props
   extends TopBarProps,
@@ -36,6 +37,7 @@ function MainApp(props: Props) {
   const [displayTime, setDisplayTime] = useState(targetTime);
   const [showStartingScreen, setShowStartingScreen] = useState(true);
   const [showFocusingScreen, setShowFocusingScreen] = useState(false);
+  const [showClockModeScreen, setShowClockModeScreen] = useState(false);
   const handleFullScreen = useFullScreenHandle();
 
   /* set timer */
@@ -88,6 +90,12 @@ function MainApp(props: Props) {
     setShowFocusingScreen(false);
   };
 
+  const startClockMode = () => {
+    setShowClockModeScreen(true);
+    setShowStartingScreen(false);
+    setIsPlaying(true);
+  };
+
   /* Youtube config */
   const mouseAccess = false;
   const videoConfig: VideoProps = {
@@ -136,6 +144,7 @@ function MainApp(props: Props) {
                 startingScreenBtns={props.startingScreenBtns}
                 task={task}
                 setTask={setTask}
+                startClockMode={startClockMode}
               />
             </Window>
           </div>
@@ -161,6 +170,14 @@ function MainApp(props: Props) {
               focusScreenBtns={props.focusScreenBtns}
             />
             <MediaButtons hideBackground className={style.focusMedia} />
+          </div>
+        </Zoom>
+      )}
+      {/* Clock Mode Screen */}
+      {showClockModeScreen && (
+        <Zoom in={showClockModeScreen}>
+          <div className={style.top}>
+            <ClockModeScreen />
           </div>
         </Zoom>
       )}

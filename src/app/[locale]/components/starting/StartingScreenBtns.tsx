@@ -16,12 +16,14 @@ export interface StartingScreenBtnsText {
 export interface StartingScreenBtnsProps extends StartingScreenBtnsText {
   toggleFullScreen: () => void;
   startFocus: () => void;
+  startClockMode: () => void;
 }
 
 function StartingScreenBtns({
   toggleFullScreen,
   startFocus,
   startingScreenBtns,
+  startClockMode,
 }: StartingScreenBtnsProps) {
   return (
     <ButtonGroup hideBackground>
@@ -30,7 +32,11 @@ function StartingScreenBtns({
         icon={PlayCircleFilledWhiteIcon}
         onClick={startFocus}
       />
-      <Button label={startingScreenBtns.clockMode} icon={WatchLaterIcon} />
+      <Button
+        label={startingScreenBtns.clockMode}
+        icon={WatchLaterIcon}
+        onClick={startClockMode}
+      />
       <Button
         label={startingScreenBtns.fullScreen}
         icon={FullscreenIcon}

@@ -1,0 +1,23 @@
+.central {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.time {
+  color: var(--Text-Primary);
+  font-size: 9em;
+  font-feature-settings: 'tnum';
+  opacity: 0.9;
+  position: relative;
+  bottom: 10px;
+}
+
+.date {
+  color: var(--Text-Primary);
+  font-size: 2.2em;
+  font-weight: 500;
+  font-feature-settings: 'tnum';
+  opacity: 0.9;
+}

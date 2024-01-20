@@ -20,6 +20,7 @@ function TimerPage({
   setTime,
   task,
   setTask,
+  startClockMode,
   defaultTask,
 }: TimerPageProps) {
   return (
@@ -32,6 +33,7 @@ function TimerPage({
         <Timer time={time} setTime={setTime} />
       </div>
       <StartingScreenBtns
+        startClockMode={startClockMode}
         startFocus={startFocus}
         toggleFullScreen={toggleFullScreen}
         startingScreenBtns={startingScreenBtns}
