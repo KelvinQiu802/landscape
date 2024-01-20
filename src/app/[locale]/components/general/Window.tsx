@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, ReactNode } from 'react';
+import { HTMLAttributes, ReactNode } from 'react';
 import style from './Window.module.css';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {

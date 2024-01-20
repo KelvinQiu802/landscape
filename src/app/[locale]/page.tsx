@@ -1,6 +1,5 @@
-import { useTranslations } from 'next-intl';
-import style from './pages.module.css';
 import '@/app/globals.css';
+import { useTranslations } from 'next-intl';
 import MainApp from './components/MainApp';
 
 export default function Home() {

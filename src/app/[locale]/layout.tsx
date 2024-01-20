@@ -1,5 +1,5 @@
-import { Inter } from 'next/font/google';
 import { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import { ReactNode } from 'react';
 
 interface Props {

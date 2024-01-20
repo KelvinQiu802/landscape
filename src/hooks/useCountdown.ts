@@ -1,5 +1,5 @@
+import { useEffect, useState } from 'react';
 import { useStopwatch } from 'react-timer-hook';
-import { useState, useEffect } from 'react';
 
 export interface CountdownValues {
   totalSeconds: number;

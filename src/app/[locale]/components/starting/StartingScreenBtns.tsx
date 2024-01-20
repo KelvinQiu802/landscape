@@ -1,9 +1,8 @@
-import React, { Dispatch, SetStateAction } from 'react';
-import ButtonGroup from '../general/ButtonGroup';
-import Button from '../general/Button';
-import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
+import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
+import Button from '../general/Button';
+import ButtonGroup from '../general/ButtonGroup';
 
 export interface StartingScreenBtnsText {
   startingScreenBtns: {

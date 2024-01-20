@@ -1,10 +1,9 @@
-import React from 'react';
-import style from './FocusScreen.module.css';
-import timerPageStyle from '../starting/TimerPage.module.css';
-import timeStyle from '../starting/Timer.module.css';
+import { timeToString } from '@/utils/time';
 import TaskInput, { TaskInputProps } from '../TaskInput';
 import Seperator from '../general/Seperator';
-import { timeToString } from '@/utils/time';
+import timeStyle from '../starting/Timer.module.css';
+import timerPageStyle from '../starting/TimerPage.module.css';
+import style from './FocusScreen.module.css';
 import FocusScreenBtns, { FocusScreenBtnsProps } from './FocusScreenBtns';
 
 export interface FocusScreenProps extends TaskInputProps, FocusScreenBtnsProps {

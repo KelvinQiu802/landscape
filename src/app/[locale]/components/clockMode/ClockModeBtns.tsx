@@ -1,9 +1,8 @@
-import React from 'react';
-import ButtonGroup from '../general/ButtonGroup';
-import Button from '../general/Button';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import KeyboardHideIcon from '@mui/icons-material/KeyboardHide';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
+import KeyboardHideIcon from '@mui/icons-material/KeyboardHide';
+import Button from '../general/Button';
+import ButtonGroup from '../general/ButtonGroup';
 
 export interface ClockModeBtnsText {
   clockModeText: {

@@ -1,9 +1,9 @@
-import React, { Dispatch, SetStateAction } from 'react';
-import ButtonGroup from '../general/ButtonGroup';
-import Button from '../general/Button';
 import ImageIcon from '@mui/icons-material/Image';
-import TimerIcon from '@mui/icons-material/Timer';
 import SettingsIcon from '@mui/icons-material/Settings';
+import TimerIcon from '@mui/icons-material/Timer';
+import { Dispatch, SetStateAction } from 'react';
+import Button from '../general/Button';
+import ButtonGroup from '../general/ButtonGroup';
 
 export interface LeftControlBarProps {
   selectedTag: number;

@@ -1,23 +1,23 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import style from './MainApp.module.css';
-import Window from './general/Window';
-import { OnProgressProps } from 'react-player/base';
-import VideoPlayerWrapper from './VideoPlayerWrapper';
-import { VideoProps } from './VideoBackground';
-import { FullScreen, useFullScreenHandle } from 'react-full-screen';
-import TopBar, { TopBarProps } from './starting/TopBar';
-import LeftControlBar from './starting/LeftControlBar';
-import TimerPage from './starting/TimerPage';
+import useCountdown from '@/hooks/useCountdown';
 import Zoom from '@mui/material/Zoom';
-import { StartingScreenBtnsText } from './starting/StartingScreenBtns';
+import { useEffect, useState } from 'react';
+import { FullScreen, useFullScreenHandle } from 'react-full-screen';
+import { OnProgressProps } from 'react-player/base';
+import style from './MainApp.module.css';
+import { VideoProps } from './VideoBackground';
+import VideoPlayerWrapper from './VideoPlayerWrapper';
+import { ClockModeBtnsText } from './clockMode/ClockModeBtns';
+import ClockModeScreen from './clockMode/ClockModeScreen';
 import FocusScreen from './focusing/FocusScreen';
 import { FocusScreenBtnsText } from './focusing/FocusScreenBtns';
 import MediaButtons from './general/MediaButtons';
-import useCountdown from '@/hooks/useCountdown';
-import ClockModeScreen, { ClockScreenProps } from './clockMode/ClockModeScreen';
-import { ClockModeBtnsText } from './clockMode/ClockModeBtns';
+import Window from './general/Window';
+import LeftControlBar from './starting/LeftControlBar';
+import { StartingScreenBtnsText } from './starting/StartingScreenBtns';
+import TimerPage from './starting/TimerPage';
+import TopBar, { TopBarProps } from './starting/TopBar';
 
 interface Props
   extends TopBarProps,

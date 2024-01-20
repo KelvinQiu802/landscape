@@ -1,6 +1,5 @@
-import React from 'react';
-import style from './TopBar.module.css';
 import MediaButtons from '../general/MediaButtons';
+import style from './TopBar.module.css';
 
 export interface TopBarProps {
   appName: string;

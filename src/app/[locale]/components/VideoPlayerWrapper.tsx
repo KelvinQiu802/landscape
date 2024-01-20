@@ -1,10 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
-import style from './MainApp.module.css';
-import VideoBackground from './VideoBackground';
 import { OnProgressProps } from 'react-player/base';
-import { VideoProps } from './VideoBackground';
+import style from './MainApp.module.css';
+import VideoBackground, { VideoProps } from './VideoBackground';
 
 interface Props {
   onVideoReady: () => void;

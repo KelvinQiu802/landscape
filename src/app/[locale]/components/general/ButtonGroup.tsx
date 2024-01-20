@@ -1,4 +1,4 @@
-import { HTMLAttributes, ReactNode } from 'react';
+import { HTMLAttributes } from 'react';
 import style from './ButtonGroup.module.css';
 import Window from './Window';
 

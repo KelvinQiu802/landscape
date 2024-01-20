@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { OnProgressProps } from 'react-player/base';
 import ReactPlayer from 'react-player/youtube';
 

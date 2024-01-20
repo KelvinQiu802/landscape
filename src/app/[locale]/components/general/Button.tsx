@@ -1,6 +1,6 @@
+import { SvgIconProps } from '@mui/material/SvgIcon';
 import { ButtonHTMLAttributes, FC } from 'react';
 import style from './Button.module.css';
-import { SvgIconProps } from '@mui/material/SvgIcon';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   label?: string;

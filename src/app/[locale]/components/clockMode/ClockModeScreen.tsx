@@ -1,16 +1,16 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
-import style from './ClockModeScreen.module.css';
-import { useTime } from 'react-timer-hook';
-import dayjs from 'dayjs';
-import 'dayjs/locale/zh';
-import 'dayjs/locale/en';
-import LocalizedFormat from 'dayjs/plugin/localizedFormat';
-import AdvancedFormat from 'dayjs/plugin/advancedFormat';
-import ClockModeBtns, { ClockModeBtnsProps } from './ClockModeBtns';
 import Zoom from '@mui/material/Zoom';
+import dayjs from 'dayjs';
+import 'dayjs/locale/en';
+import 'dayjs/locale/zh';
+import AdvancedFormat from 'dayjs/plugin/advancedFormat';
+import LocalizedFormat from 'dayjs/plugin/localizedFormat';
+import { useEffect, useState } from 'react';
+import { useTime } from 'react-timer-hook';
 import MediaButtons from '../general/MediaButtons';
+import ClockModeBtns, { ClockModeBtnsProps } from './ClockModeBtns';
+import style from './ClockModeScreen.module.css';
 
 export interface ClockScreenProps
   extends Omit<ClockModeBtnsProps, 'hideClockBtns'> {}

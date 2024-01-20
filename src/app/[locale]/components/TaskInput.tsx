@@ -1,6 +1,6 @@
-import React, { Dispatch, InputHTMLAttributes, SetStateAction } from 'react';
-import TransparentInput from './general/TransparentInput';
+import { Dispatch, InputHTMLAttributes, SetStateAction } from 'react';
 import style from './TaskInput.module.css';
+import TransparentInput from './general/TransparentInput';
 
 export interface TaskInputProps extends InputHTMLAttributes<HTMLInputElement> {
   task: string;

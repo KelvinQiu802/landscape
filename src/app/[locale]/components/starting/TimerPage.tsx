@@ -1,11 +1,10 @@
-import React, { Dispatch, SetStateAction, useState } from 'react';
-import style from './TimerPage.module.css';
 import TaskInput, { TaskInputProps } from '../TaskInput';
 import Seperator from '../general/Seperator';
-import Timer, { TimerProps } from './Timer';
 import StartingScreenBtns, {
   StartingScreenBtnsProps,
 } from './StartingScreenBtns';
+import Timer, { TimerProps } from './Timer';
+import style from './TimerPage.module.css';
 
 export interface TimerPageProps
   extends TimerProps,

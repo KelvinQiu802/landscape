@@ -1,12 +1,12 @@
-import React, { Dispatch, SetStateAction } from 'react';
-import ButtonGroup from '../general/ButtonGroup';
-import Button from '../general/Button';
+import FlagIcon from '@mui/icons-material/Flag';
+import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import PauseCircleIcon from '@mui/icons-material/PauseCircle';
 import PlayCircleIcon from '@mui/icons-material/PlayCircle';
-import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 import VolumeOffIcon from '@mui/icons-material/VolumeOff';
-import FullscreenIcon from '@mui/icons-material/Fullscreen';
-import FlagIcon from '@mui/icons-material/Flag';
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
+import { Dispatch, SetStateAction } from 'react';
+import Button from '../general/Button';
+import ButtonGroup from '../general/ButtonGroup';
 
 export interface FocusScreenBtnsText {
   focusScreenBtns: {

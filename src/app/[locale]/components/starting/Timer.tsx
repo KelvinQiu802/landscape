@@ -1,9 +1,9 @@
-import React, { Dispatch, SetStateAction } from 'react';
-import Button from '../general/Button';
+import { timeToString } from '@/utils/time';
 import Add from '@mui/icons-material/Add';
 import Remove from '@mui/icons-material/Remove';
+import { Dispatch, SetStateAction } from 'react';
+import Button from '../general/Button';
 import style from './Timer.module.css';
-import { timeToString } from '@/utils/time';
 
 export interface TimerProps {
   time: number;

@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes } from 'react';
+import { InputHTMLAttributes } from 'react';
 import style from './TransparentInput.module.css';
 
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
