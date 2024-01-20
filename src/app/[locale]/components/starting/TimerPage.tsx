@@ -1,25 +1,27 @@
 import React, { Dispatch, SetStateAction, useState } from 'react';
 import style from './TimerPage.module.css';
-import TaskInput from '../TaskInput';
+import TaskInput, { TaskInputProps } from '../TaskInput';
 import Seperator from '../general/Seperator';
 import Timer, { TimerProps } from './Timer';
 import StartingScreenBtns, {
   StartingScreenBtnsProps,
 } from './StartingScreenBtns';
 
-export interface TimerPageProps extends TimerProps, StartingScreenBtnsProps {
-  defaultTask: string;
-}
+export interface TimerPageProps
+  extends TimerProps,
+    StartingScreenBtnsProps,
+    TaskInputProps {}
 
 function TimerPage({
-  defaultTask,
   setIsFocus,
   handleFullScreen,
   text,
   time,
   setTime,
+  task,
+  setTask,
+  defaultTask,
 }: TimerPageProps) {
-  const [task, setTask] = useState(defaultTask);
   return (
     <div className={style.central}>
       <div className={style.task}>

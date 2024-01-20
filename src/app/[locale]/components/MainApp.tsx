@@ -14,6 +14,7 @@ import TimerPage, { TimerPageProps } from './starting/TimerPage';
 import { useTimer } from 'react-timer-hook';
 import { Fade } from '@mui/material';
 import { StartingScreenBtnsText } from './starting/StartingScreenBtns';
+import FocusScreen from './focusing/FocusScreen';
 
 interface Props extends TopBarProps, StartingScreenBtnsText {
   task: string;
@@ -21,6 +22,7 @@ interface Props extends TopBarProps, StartingScreenBtnsText {
 
 function MainApp(props: Props) {
   const defaultTask = props.task;
+  const [task, setTask] = useState(defaultTask);
   const [isReady, setIsReady] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
@@ -50,6 +52,13 @@ function MainApp(props: Props) {
   const onVideoProgress = (state: OnProgressProps) => {};
   const onVideoEnded = () => {};
   const onVideoError = () => {};
+  const removeStartingScreen = () => {
+    if (isFocus) {
+      /* remove starting and show focusing screen if the focus is start */
+      setShowStartingScreen(false);
+      setShowFocusingScreen(true);
+    }
+  };
 
   /* Youtube config */
   const mouseAccess = false;
@@ -87,14 +96,6 @@ function MainApp(props: Props) {
     setTime(totalSeconds);
   }, [totalSeconds]);
 
-  const removeStartingScreen = () => {
-    if (isFocus) {
-      /* remove starting and show focusing screen if the focus is start */
-      setShowStartingScreen(false);
-      setShowFocusingScreen(true);
-    }
-  };
-
   return (
     <FullScreen handle={handleFullScreen}>
       {/* Starting Screen */}
@@ -114,6 +115,8 @@ function MainApp(props: Props) {
                 setIsFocus={setIsFocus}
                 handleFullScreen={handleFullScreen}
                 text={props.text}
+                task={task}
+                setTask={setTask}
               />
             </Window>
           </div>
@@ -122,7 +125,7 @@ function MainApp(props: Props) {
       {/* Focusing Screen */}
       {showFocusingScreen && (
         <Fade in={isReady && isFocus}>
-          <div className={style.top}>Focusing</div>
+          <FocusScreen time={time} task={} />
         </Fade>
       )}
       <VideoPlayerWrapper
