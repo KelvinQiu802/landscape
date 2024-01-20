@@ -5,6 +5,7 @@ import Zoom from '@mui/material/Zoom';
 import { useEffect, useState } from 'react';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import { OnProgressProps } from 'react-player/base';
+// @ts-ignore
 import { useSound } from 'use-sound';
 import style from './MainApp.module.css';
 import { VideoProps } from './VideoBackground';
