@@ -14,12 +14,12 @@ export interface StartingScreenBtnsText {
 }
 
 export interface StartingScreenBtnsProps extends StartingScreenBtnsText {
-  toggleFullScreen: () => void
+  toggleFullScreen: () => void;
   setIsFocus: Dispatch<SetStateAction<boolean>>;
 }
 
 function StartingScreenBtns({
-  toggleFullScreen
+  toggleFullScreen,
   setIsFocus,
   text,
 }: StartingScreenBtnsProps) {
