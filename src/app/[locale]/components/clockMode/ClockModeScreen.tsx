@@ -10,6 +10,10 @@ import LocalizedFormat from 'dayjs/plugin/localizedFormat';
 import AdvancedFormat from 'dayjs/plugin/advancedFormat';
 import ClockModeBtns, { ClockModeBtnsProps } from './ClockModeBtns';
 import Zoom from '@mui/material/Zoom';
+import Button from '../general/Button';
+import KeyboardIcon from '@mui/icons-material/Keyboard';
+import ButtonGroup from '../general/ButtonGroup';
+import MediaButtons from '../general/MediaButtons';
 
 export interface ClockScreenProps
   extends Omit<ClockModeBtnsProps, 'hideClockBtns'> {}
@@ -53,6 +57,22 @@ function ClockModeScreen(props: ClockScreenProps) {
           </div>
         </Zoom>
       )}
+      {!showBtnsBar && (
+        <Zoom in={!showBtnsBar}>
+          <div className={style.cornerBtn}>
+            <ClockModeBtns
+              exitClockMode={props.exitClockMode}
+              hideClockBtns={toggleShowButtonsBar}
+              toggleFullScreen={props.toggleFullScreen}
+              clockModeText={props.clockModeText}
+              corner
+            />
+          </div>
+        </Zoom>
+      )}
+      <div className={style.media}>
+        <MediaButtons hideBackground />
+      </div>
     </div>
   );
 }

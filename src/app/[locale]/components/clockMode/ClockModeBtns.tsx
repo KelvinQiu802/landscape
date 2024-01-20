@@ -17,10 +17,17 @@ export interface ClockModeBtnsProps extends ClockModeBtnsText {
   exitClockMode: () => void;
   hideClockBtns: () => void;
   toggleFullScreen: () => void;
+  corner?: boolean;
 }
 
 function ClockModeBtns({ clockModeText, ...props }: ClockModeBtnsProps) {
-  return (
+  return props.corner ? (
+    <ButtonGroup>
+      <Button icon={ExitToAppIcon} onClick={props.exitClockMode} />
+      <Button icon={KeyboardHideIcon} onClick={props.hideClockBtns} />
+      <Button icon={FullscreenIcon} onClick={props.toggleFullScreen} />
+    </ButtonGroup>
+  ) : (
     <ButtonGroup>
       <Button
         label={clockModeText.eixt}

@@ -21,3 +21,15 @@
   font-feature-settings: 'tnum';
   opacity: 0.9;
 }
+
+.cornerBtn {
+  position: absolute;
+  bottom: 1%;
+  right: 1%;
+}
+
+.media {
+  position: absolute;
+  top: 3%;
+  right: 3%;
+}
