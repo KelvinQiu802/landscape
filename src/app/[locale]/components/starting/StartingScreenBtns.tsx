@@ -6,7 +6,7 @@ import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
 
 export interface StartingScreenBtnsText {
-  text: {
+  startingScreenBtns: {
     focus: string;
     clockMode: string;
     fullScreen: string;
@@ -21,18 +21,18 @@ export interface StartingScreenBtnsProps extends StartingScreenBtnsText {
 function StartingScreenBtns({
   toggleFullScreen,
   setIsFocus,
-  text,
+  startingScreenBtns,
 }: StartingScreenBtnsProps) {
   return (
     <ButtonGroup hideBackground>
       <Button
-        label={text.focus}
+        label={startingScreenBtns.focus}
         icon={PlayCircleFilledWhiteIcon}
         onClick={() => setIsFocus((prev) => !prev)}
       />
-      <Button label={text.clockMode} icon={WatchLaterIcon} />
+      <Button label={startingScreenBtns.clockMode} icon={WatchLaterIcon} />
       <Button
-        label={text.fullScreen}
+        label={startingScreenBtns.fullScreen}
         icon={FullscreenIcon}
         onClick={toggleFullScreen}
       />
