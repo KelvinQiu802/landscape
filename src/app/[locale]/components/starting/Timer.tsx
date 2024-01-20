@@ -5,12 +5,12 @@ import Remove from '@mui/icons-material/Remove';
 import style from './Timer.module.css';
 import { timeToString } from '@/utils/time';
 
-interface Props {
+export interface TimerProps {
   time: number;
   setTime: Dispatch<SetStateAction<number>>;
 }
 
-function Timer({ time, setTime }: Props) {
+function Timer({ time, setTime }: TimerProps) {
   const STEP = 5 * 60; // 5 minutes
 
   const increaseTime = () => {

@@ -5,11 +5,11 @@ import style from './TopBar.module.css';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
-interface Props {
+export interface TopBarProps {
   appName: string;
 }
 
-function TopBar({ appName }: Props) {
+function TopBar({ appName }: TopBarProps) {
   return (
     <div className={style.topBar}>
       <div className="window-title">{appName}</div>

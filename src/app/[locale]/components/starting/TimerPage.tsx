@@ -2,31 +2,23 @@ import React, { Dispatch, SetStateAction, useState } from 'react';
 import style from './TimerPage.module.css';
 import TaskInput from '../TaskInput';
 import Seperator from '../general/Seperator';
-import Timer from './Timer';
-import StartingScreenBtns from './StartingScreenBtns';
-import { FullScreenHandle } from 'react-full-screen';
+import Timer, { TimerProps } from './Timer';
+import StartingScreenBtns, {
+  StartingScreenBtnsProps,
+} from './StartingScreenBtns';
 
-interface Props {
+export interface TimerPageProps extends TimerProps, StartingScreenBtnsProps {
   defaultTask: string;
-  setIsFocus: Dispatch<SetStateAction<boolean>>;
-  handleFullScreen: FullScreenHandle;
-  clockMode: string;
-  fullScreen: string;
-  focus: string;
-  time: number;
-  setTime: Dispatch<SetStateAction<number>>;
 }
 
 function TimerPage({
   defaultTask,
   setIsFocus,
   handleFullScreen,
-  fullScreen,
-  clockMode,
-  focus,
+  text,
   time,
   setTime,
-}: Props) {
+}: TimerPageProps) {
   const [task, setTask] = useState(defaultTask);
   return (
     <div className={style.central}>
@@ -40,9 +32,7 @@ function TimerPage({
       <StartingScreenBtns
         setIsFocus={setIsFocus}
         handleFullScreen={handleFullScreen}
-        clockMode={clockMode}
-        fullScreen={fullScreen}
-        focus={focus}
+        text={text}
       />
     </div>
   );

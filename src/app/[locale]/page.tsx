@@ -10,9 +10,11 @@ export default function Home() {
       <MainApp
         appName={t('appName')}
         task={t('task')}
-        focus={t('focus')}
-        clockMode={t('clockMode')}
-        fullScreen={t('fullScreen')}
+        text={{
+          focus: t('focus'),
+          clockMode: t('clockMode'),
+          fullScreen: t('fullScreen'),
+        }}
       />
     </div>
   );

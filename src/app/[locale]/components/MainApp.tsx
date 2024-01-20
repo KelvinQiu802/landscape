@@ -8,18 +8,15 @@ import { OnProgressProps } from 'react-player/base';
 import VideoPlayerWrapper from './VideoPlayerWrapper';
 import { VideoProps } from './VideoBackground';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
-import TopBar from './starting/TopBar';
+import TopBar, { TopBarProps } from './starting/TopBar';
 import LeftControlBar from './starting/LeftControlBar';
-import TimerPage from './starting/TimerPage';
+import TimerPage, { TimerPageProps } from './starting/TimerPage';
 import { useTimer } from 'react-timer-hook';
 import { Fade } from '@mui/material';
+import { StartingScreenBtnsText } from './starting/StartingScreenBtns';
 
-interface Props {
-  appName: string;
+interface Props extends TopBarProps, StartingScreenBtnsText {
   task: string;
-  focus: string;
-  clockMode: string;
-  fullScreen: string;
 }
 
 function MainApp(props: Props) {
@@ -116,7 +113,7 @@ function MainApp(props: Props) {
                 defaultTask={defaultTask}
                 setIsFocus={setIsFocus}
                 handleFullScreen={handleFullScreen}
-                {...props}
+                text={props.text}
               />
             </Window>
           </div>

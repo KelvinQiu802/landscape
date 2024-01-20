@@ -6,21 +6,24 @@ import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
 import { FullScreenHandle } from 'react-full-screen';
 
-interface Props {
+export interface StartingScreenBtnsText {
+  text: {
+    focus: string;
+    clockMode: string;
+    fullScreen: string;
+  };
+}
+
+export interface StartingScreenBtnsProps extends StartingScreenBtnsText {
   handleFullScreen: FullScreenHandle;
   setIsFocus: Dispatch<SetStateAction<boolean>>;
-  focus: string;
-  clockMode: string;
-  fullScreen: string;
 }
 
 function StartingScreenBtns({
   handleFullScreen,
   setIsFocus,
-  focus,
-  clockMode,
-  fullScreen,
-}: Props) {
+  text,
+}: StartingScreenBtnsProps) {
   const toggleFullScreen = () => {
     if (handleFullScreen.active) {
       handleFullScreen.exit();
@@ -32,13 +35,13 @@ function StartingScreenBtns({
   return (
     <ButtonGroup hideBackground>
       <Button
-        label={focus}
+        label={text.focus}
         icon={PlayCircleFilledWhiteIcon}
         onClick={() => setIsFocus((prev) => !prev)}
       />
-      <Button label={clockMode} icon={WatchLaterIcon} />
+      <Button label={text.clockMode} icon={WatchLaterIcon} />
       <Button
-        label={fullScreen}
+        label={text.fullScreen}
         icon={FullscreenIcon}
         onClick={toggleFullScreen}
       />

@@ -5,12 +5,12 @@ import ImageIcon from '@mui/icons-material/Image';
 import TimerIcon from '@mui/icons-material/Timer';
 import SettingsIcon from '@mui/icons-material/Settings';
 
-interface Props {
+export interface LeftControlBarProps {
   selectedTag: number;
   setSelectedTag: Dispatch<SetStateAction<number>>;
 }
 
-function LeftControlBar({ selectedTag, setSelectedTag }: Props) {
+function LeftControlBar({ selectedTag, setSelectedTag }: LeftControlBarProps) {
   return (
     <ButtonGroup vertical>
       <Button
