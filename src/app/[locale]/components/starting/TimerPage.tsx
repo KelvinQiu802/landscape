@@ -14,7 +14,7 @@ export interface TimerPageProps
 
 function TimerPage({
   setIsFocus,
-  handleFullScreen,
+  toggleFullScreen,
   text,
   time,
   setTime,
@@ -33,7 +33,7 @@ function TimerPage({
       </div>
       <StartingScreenBtns
         setIsFocus={setIsFocus}
-        handleFullScreen={handleFullScreen}
+        toggleFullScreen={toggleFullScreen}
         text={text}
       />
     </div>

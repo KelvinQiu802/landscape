@@ -4,7 +4,6 @@ import Button from '../general/Button';
 import PlayCircleFilledWhiteIcon from '@mui/icons-material/PlayCircleFilledWhite';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
-import { FullScreenHandle } from 'react-full-screen';
 
 export interface StartingScreenBtnsText {
   text: {
@@ -15,23 +14,15 @@ export interface StartingScreenBtnsText {
 }
 
 export interface StartingScreenBtnsProps extends StartingScreenBtnsText {
-  handleFullScreen: FullScreenHandle;
+  toggleFullScreen: () => void
   setIsFocus: Dispatch<SetStateAction<boolean>>;
 }
 
 function StartingScreenBtns({
-  handleFullScreen,
+  toggleFullScreen
   setIsFocus,
   text,
 }: StartingScreenBtnsProps) {
-  const toggleFullScreen = () => {
-    if (handleFullScreen.active) {
-      handleFullScreen.exit();
-    } else {
-      handleFullScreen.enter();
-    }
-  };
-
   return (
     <ButtonGroup hideBackground>
       <Button

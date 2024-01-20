@@ -59,6 +59,13 @@ function MainApp(props: Props) {
       setShowFocusingScreen(true);
     }
   };
+  const toggleFullScreen = () => {
+    if (handleFullScreen.active) {
+      handleFullScreen.exit();
+    } else {
+      handleFullScreen.enter();
+    }
+  };
 
   /* Youtube config */
   const mouseAccess = false;
@@ -113,7 +120,7 @@ function MainApp(props: Props) {
                 setTime={setTime}
                 defaultTask={defaultTask}
                 setIsFocus={setIsFocus}
-                handleFullScreen={handleFullScreen}
+                toggleFullScreen={toggleFullScreen}
                 text={props.text}
                 task={task}
                 setTask={setTask}
