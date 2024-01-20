@@ -19,6 +19,7 @@ function FocusScreen(props: FocusScreenProps) {
           task={props.task}
           setTask={props.setTask}
           defaultTask={props.defaultTask}
+          className={style.opacity}
         />
         <Seperator width="100%" />
       </div>
