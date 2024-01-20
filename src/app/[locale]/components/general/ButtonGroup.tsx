@@ -2,13 +2,17 @@ import { HTMLAttributes, ReactNode } from 'react';
 import style from './ButtonGroup.module.css';
 import Window from './Window';
 
-interface Props extends HTMLAttributes<HTMLDivElement> {
-  children: ReactNode;
+export interface ButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
   hideBackground?: boolean;
   vertical?: boolean;
 }
 
-function ButtonGroup({ children, hideBackground, vertical, ...props }: Props) {
+function ButtonGroup({
+  children,
+  hideBackground,
+  vertical,
+  ...props
+}: ButtonGroupProps) {
   return (
     <Window
       {...props}

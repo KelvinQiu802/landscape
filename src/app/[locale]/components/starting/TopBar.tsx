@@ -1,9 +1,6 @@
 import React from 'react';
-import ButtonGroup from '../general/ButtonGroup';
-import Button from '../general/Button';
 import style from './TopBar.module.css';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+import MediaButtons from '../general/MediaButtons';
 
 export interface TopBarProps {
   appName: string;
@@ -13,10 +10,7 @@ function TopBar({ appName }: TopBarProps) {
   return (
     <div className={style.topBar}>
       <div className="window-title">{appName}</div>
-      <ButtonGroup hideBackground style={{ padding: 0 }}>
-        <Button icon={GitHubIcon} />
-        <Button icon={FavoriteIcon} />
-      </ButtonGroup>
+      <MediaButtons hideBackground style={{ padding: 0 }} />
     </div>
   );
 }
