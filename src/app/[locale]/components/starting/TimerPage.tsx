@@ -13,7 +13,7 @@ export interface TimerPageProps
     TaskInputProps {}
 
 function TimerPage({
-  setIsFocus,
+  startFocus,
   toggleFullScreen,
   startingScreenBtns,
   time,
@@ -32,7 +32,7 @@ function TimerPage({
         <Timer time={time} setTime={setTime} />
       </div>
       <StartingScreenBtns
-        setIsFocus={setIsFocus}
+        startFocus={startFocus}
         toggleFullScreen={toggleFullScreen}
         startingScreenBtns={startingScreenBtns}
       />

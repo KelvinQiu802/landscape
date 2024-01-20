@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
-import { SetStateAction, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import style from './MainApp.module.css';
 import Window from './general/Window';
 import { OnProgressProps } from 'react-player/base';
@@ -10,13 +10,13 @@ import { VideoProps } from './VideoBackground';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import TopBar, { TopBarProps } from './starting/TopBar';
 import LeftControlBar from './starting/LeftControlBar';
-import TimerPage, { TimerPageProps } from './starting/TimerPage';
-import { useTimer } from 'react-timer-hook';
+import TimerPage from './starting/TimerPage';
 import Zoom from '@mui/material/Zoom';
 import { StartingScreenBtnsText } from './starting/StartingScreenBtns';
 import FocusScreen from './focusing/FocusScreen';
 import { FocusScreenBtnsText } from './focusing/FocusScreenBtns';
 import MediaButtons from './general/MediaButtons';
+import useCountdown from '@/hooks/useCountdown';
 
 interface Props
   extends TopBarProps,
@@ -33,22 +33,20 @@ function MainApp(props: Props) {
   const [isMuted, setIsMuted] = useState(true);
   const [selectedTag, setSelectedTag] = useState(0);
   const [isFocus, setIsFocus] = useState(false);
-  const [time, setTime] = useState(1500);
+  const [targetTime, setTargetTime] = useState(25 * 60);
+  const [displayTime, setDisplayTime] = useState(targetTime);
   const [showStartingScreen, setShowStartingScreen] = useState(true);
   const [showFocusingScreen, setShowFocusingScreen] = useState(false);
   const handleFullScreen = useFullScreenHandle();
 
   /* set timer */
-  const date = new Date();
-  date.setSeconds(date.getSeconds() + time);
   const onExpire = () => {
-    alert('Time Up');
+    finishFocus();
   };
-  const { totalSeconds, isRunning, start, pause, resume, restart } = useTimer({
-    expiryTimestamp: date,
-    onExpire,
-    autoStart: false,
-  });
+  const { totalSeconds, pause, start, resume, isRunning, reset } = useCountdown(
+    targetTime,
+    onExpire
+  );
 
   /* callbacks */
   const onVideoReady = () => {
@@ -64,6 +62,7 @@ function MainApp(props: Props) {
       setShowFocusingScreen(true);
     }
   };
+
   const toggleFullScreen = () => {
     if (handleFullScreen.active) {
       handleFullScreen.exit();
@@ -71,8 +70,21 @@ function MainApp(props: Props) {
       handleFullScreen.enter();
     }
   };
+
+  const startFocus = () => {
+    setIsFocus(true);
+    setIsPlaying(true);
+    setShowFocusingScreen(true);
+    setShowStartingScreen(false);
+    start();
+  };
+
   const finishFocus = () => {
+    pause(); // pause the timer
+    reset(); // reset the timer
+    setTargetTime(25 * 60);
     setIsFocus(false);
+    setIsPlaying(false);
     setShowStartingScreen(true);
     setShowFocusingScreen(false);
   };
@@ -85,7 +97,7 @@ function MainApp(props: Props) {
     loop: false,
     controls: false,
     volume: 1,
-    url: 'https://www.youtube.com/watch?v=U_KrN18SOYk',
+    url: 'https://www.youtube.com/watch?v=TBu8hw6D63I',
     onVideoReady,
     onVideoEnded,
     onVideoError,
@@ -93,25 +105,12 @@ function MainApp(props: Props) {
   };
 
   useEffect(() => {
-    if (isFocus) {
-      /* start a focus */
-      setIsPlaying(true);
-      start();
-    } else {
-      /* end a focus */
-      setIsPlaying(false);
-      pause(); // pause the timer
-      const newTime = 25 * 60; // TODO: change time to preference time
-      setTime(newTime);
-      const date = new Date();
-      date.setSeconds(date.getSeconds() + newTime);
-      restart(date, false); // reset the timer
-    }
-  }, [isFocus]);
+    setDisplayTime(totalSeconds);
+  }, [totalSeconds]);
 
   useEffect(() => {
-    setTime(totalSeconds);
-  }, [totalSeconds]);
+    setDisplayTime(targetTime);
+  }, [targetTime]);
 
   return (
     <FullScreen handle={handleFullScreen}>
@@ -130,10 +129,10 @@ function MainApp(props: Props) {
             <Window className={`${style.mainWindow} `}>
               <TopBar appName={props.appName} />
               <TimerPage
-                time={time}
-                setTime={setTime}
+                time={displayTime}
+                setTime={setTargetTime}
                 defaultTask={defaultTask}
-                setIsFocus={setIsFocus}
+                startFocus={startFocus}
                 toggleFullScreen={toggleFullScreen}
                 startingScreenBtns={props.startingScreenBtns}
                 task={task}
@@ -148,7 +147,7 @@ function MainApp(props: Props) {
         <Zoom in={isReady && isFocus} timeout={400}>
           <div className={style.top}>
             <FocusScreen
-              time={time}
+              time={displayTime}
               task={task}
               setTask={setTask}
               defaultTask={defaultTask}

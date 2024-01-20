@@ -15,12 +15,12 @@ export interface StartingScreenBtnsText {
 
 export interface StartingScreenBtnsProps extends StartingScreenBtnsText {
   toggleFullScreen: () => void;
-  setIsFocus: Dispatch<SetStateAction<boolean>>;
+  startFocus: () => void;
 }
 
 function StartingScreenBtns({
   toggleFullScreen,
-  setIsFocus,
+  startFocus,
   startingScreenBtns,
 }: StartingScreenBtnsProps) {
   return (
@@ -28,7 +28,7 @@ function StartingScreenBtns({
       <Button
         label={startingScreenBtns.focus}
         icon={PlayCircleFilledWhiteIcon}
-        onClick={() => setIsFocus((prev) => !prev)}
+        onClick={startFocus}
       />
       <Button label={startingScreenBtns.clockMode} icon={WatchLaterIcon} />
       <Button
