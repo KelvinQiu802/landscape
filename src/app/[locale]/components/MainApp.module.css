@@ -23,3 +23,9 @@
   width: 55%;
   height: 60%;
 }
+
+.focusMedia {
+  position: absolute;
+  top: 3%;
+  right: 3%;
+}

@@ -16,6 +16,7 @@ import Zoom from '@mui/material/Zoom';
 import { StartingScreenBtnsText } from './starting/StartingScreenBtns';
 import FocusScreen from './focusing/FocusScreen';
 import { FocusScreenBtnsText } from './focusing/FocusScreenBtns';
+import MediaButtons from './general/MediaButtons';
 
 interface Props
   extends TopBarProps,
@@ -161,6 +162,7 @@ function MainApp(props: Props) {
               toggleFullScreen={toggleFullScreen}
               focusScreenBtns={props.focusScreenBtns}
             />
+            <MediaButtons hideBackground className={style.focusMedia} />
           </div>
         </Zoom>
       )}
