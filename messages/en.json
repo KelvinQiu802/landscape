@@ -5,6 +5,11 @@
     "task": "What is your task for this pomodoro?",
     "focus": "Focus",
     "clockMode": "Clock Mode",
-    "fullScreen": "Full Screen"
+    "fullScreen": "Full Screen",
+    "finish": "Finish",
+    "pause": "Pause",
+    "resume": "Resume",
+    "mute": "Mute",
+    "unmute": "Unmute"
   }
 }

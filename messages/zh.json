@@ -5,6 +5,11 @@
     "task": "在这个番茄中准备做点什么？",
     "focus": "专注",
     "clockMode": "时钟模式",
-    "fullScreen": "切换全屏"
+    "fullScreen": "切换全屏",
+    "finish": "结束",
+    "pause": "暂停",
+    "resume": "继续",
+    "mute": "静音",
+    "unmute": "取消静音"
   }
 }

@@ -5,8 +5,9 @@ import timeStyle from '../starting/Timer.module.css';
 import TaskInput, { TaskInputProps } from '../TaskInput';
 import Seperator from '../general/Seperator';
 import { timeToString } from '@/utils/time';
+import FocusScreenBtns, { FocusScreenBtnsProps } from './FocusScreenBtns';
 
-export interface FocusScreenProps extends TaskInputProps {
+export interface FocusScreenProps extends TaskInputProps, FocusScreenBtnsProps {
   time: number;
 }
 
@@ -24,13 +25,17 @@ function FocusScreen(props: FocusScreenProps) {
       <div className={timerPageStyle.timer}>
         <h1 className={timeStyle.time}>{timeToString(props.time)}</h1>
       </div>
-      {/* <StartingScreenBtns
-          setIsFocus={setIsFocus}
-          handleFullScreen={handleFullScreen}
-          clockMode={clockMode}
-          fullScreen={fullScreen}
-          focus={focus}
-        /> */}
+      <FocusScreenBtns
+        finishFocus={props.finishFocus}
+        isPlaying={props.isPlaying}
+        isMuted={props.isMuted}
+        setIsPlaying={props.setIsPlaying}
+        setIsMuted={props.setIsMuted}
+        pause={props.pause}
+        resume={props.resume}
+        toggleFullScreen={props.toggleFullScreen}
+        focusScreenBtns={props.focusScreenBtns}
+      />
     </div>
   );
 }

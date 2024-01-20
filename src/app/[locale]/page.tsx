@@ -10,9 +10,17 @@ export default function Home() {
       <MainApp
         appName={t('appName')}
         task={t('task')}
-        text={{
+        startingScreenBtns={{
           focus: t('focus'),
           clockMode: t('clockMode'),
+          fullScreen: t('fullScreen'),
+        }}
+        focusScreenBtns={{
+          finish: t('finish'),
+          pause: t('pause'),
+          resume: t('resume'),
+          mute: t('mute'),
+          unmute: t('unmute'),
           fullScreen: t('fullScreen'),
         }}
       />

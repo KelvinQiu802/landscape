@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client';
 
-import { useEffect, useState } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
 import style from './MainApp.module.css';
 import Window from './general/Window';
 import { OnProgressProps } from 'react-player/base';
@@ -15,8 +15,12 @@ import { useTimer } from 'react-timer-hook';
 import { Fade } from '@mui/material';
 import { StartingScreenBtnsText } from './starting/StartingScreenBtns';
 import FocusScreen from './focusing/FocusScreen';
+import { FocusScreenBtnsText } from './focusing/FocusScreenBtns';
 
-interface Props extends TopBarProps, StartingScreenBtnsText {
+interface Props
+  extends TopBarProps,
+    StartingScreenBtnsText,
+    FocusScreenBtnsText {
   task: string;
 }
 
@@ -65,6 +69,11 @@ function MainApp(props: Props) {
     } else {
       handleFullScreen.enter();
     }
+  };
+  const finishFocus = () => {
+    setIsFocus(false);
+    setShowStartingScreen(true);
+    setShowFocusingScreen(false);
   };
 
   /* Youtube config */
@@ -121,7 +130,7 @@ function MainApp(props: Props) {
                 defaultTask={defaultTask}
                 setIsFocus={setIsFocus}
                 toggleFullScreen={toggleFullScreen}
-                text={props.text}
+                startingScreenBtns={props.startingScreenBtns}
                 task={task}
                 setTask={setTask}
               />
@@ -138,6 +147,15 @@ function MainApp(props: Props) {
               task={task}
               setTask={setTask}
               defaultTask={defaultTask}
+              finishFocus={finishFocus}
+              isPlaying={isPlaying}
+              isMuted={isMuted}
+              setIsPlaying={setIsPlaying}
+              setIsMuted={setIsMuted}
+              pause={pause}
+              resume={resume}
+              toggleFullScreen={toggleFullScreen}
+              focusScreenBtns={props.focusScreenBtns}
             />
           </div>
         </Fade>
