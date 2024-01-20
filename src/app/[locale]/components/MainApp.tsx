@@ -12,6 +12,7 @@ import TopBar from './starting/TopBar';
 import LeftControlBar from './starting/LeftControlBar';
 import TimerPage from './starting/TimerPage';
 import { useTimer } from 'react-timer-hook';
+import { Fade } from '@mui/material';
 
 interface Props {
   appName: string;
@@ -29,6 +30,7 @@ function MainApp(props: Props) {
   const [selectedTag, setSelectedTag] = useState(0);
   const [isFocus, setIsFocus] = useState(false);
   const [time, setTime] = useState(1500);
+  const [showStartingScreen, setShowStartingScreen] = useState(true);
   const handleFullScreen = useFullScreenHandle();
 
   /* set timer */
@@ -87,25 +89,36 @@ function MainApp(props: Props) {
     setTime(totalSeconds);
   }, [totalSeconds]);
 
+  const removeStartingScreen = () => {
+    if (isFocus) {
+      /* remove starting screen if the focus is start */
+      setShowStartingScreen(false);
+    }
+  };
+
   return (
     <FullScreen handle={handleFullScreen}>
-      <div className={`${style.top} ${isReady ? '' : style.hidden}`}>
-        <LeftControlBar
-          selectedTag={selectedTag}
-          setSelectedTag={setSelectedTag}
-        />
-        <Window className={`${style.mainWindow} `}>
-          <TopBar appName={props.appName} />
-          <TimerPage
-            time={time}
-            setTime={setTime}
-            defaultTask={defaultTask}
-            setIsFocus={setIsFocus}
-            handleFullScreen={handleFullScreen}
-            {...props}
-          />
-        </Window>
-      </div>
+      {showStartingScreen && (
+        <Fade in={isReady && !isFocus} addEndListener={removeStartingScreen}>
+          <div className={style.top}>
+            <LeftControlBar
+              selectedTag={selectedTag}
+              setSelectedTag={setSelectedTag}
+            />
+            <Window className={`${style.mainWindow} `}>
+              <TopBar appName={props.appName} />
+              <TimerPage
+                time={time}
+                setTime={setTime}
+                defaultTask={defaultTask}
+                setIsFocus={setIsFocus}
+                handleFullScreen={handleFullScreen}
+                {...props}
+              />
+            </Window>
+          </div>
+        </Fade>
+      )}
       <VideoPlayerWrapper
         onVideoEnded={onVideoEnded}
         onVideoError={onVideoError}
