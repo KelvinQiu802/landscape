@@ -49,7 +49,7 @@ function VideoBackground({
       onProgress={onVideoProgress}
       onEnded={onVideoEnded}
       onError={onVideoError}
-      config={{ playerVars: { disablekb: 1, iv_load_policy: 3 } }}
+      config={{ playerVars: { disablekb: 1, iv_load_policy: 3, rel: 0 } }}
     />
   ) : (
     <div>The video player cannot render on the server side</div>
