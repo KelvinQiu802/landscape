@@ -12,7 +12,7 @@ import TopBar, { TopBarProps } from './starting/TopBar';
 import LeftControlBar from './starting/LeftControlBar';
 import TimerPage, { TimerPageProps } from './starting/TimerPage';
 import { useTimer } from 'react-timer-hook';
-import { Fade } from '@mui/material';
+import Zoom from '@mui/material/Zoom';
 import { StartingScreenBtnsText } from './starting/StartingScreenBtns';
 import FocusScreen from './focusing/FocusScreen';
 import { FocusScreenBtnsText } from './focusing/FocusScreenBtns';
@@ -116,7 +116,11 @@ function MainApp(props: Props) {
     <FullScreen handle={handleFullScreen}>
       {/* Starting Screen */}
       {showStartingScreen && (
-        <Fade in={isReady && !isFocus} addEndListener={removeStartingScreen}>
+        <Zoom
+          in={isReady && !isFocus}
+          addEndListener={removeStartingScreen}
+          timeout={400}
+        >
           <div className={style.top}>
             <LeftControlBar
               selectedTag={selectedTag}
@@ -136,11 +140,11 @@ function MainApp(props: Props) {
               />
             </Window>
           </div>
-        </Fade>
+        </Zoom>
       )}
       {/* Focusing Screen */}
       {showFocusingScreen && (
-        <Fade in={isReady && isFocus}>
+        <Zoom in={isReady && isFocus} timeout={400}>
           <div className={style.top}>
             <FocusScreen
               time={time}
@@ -158,7 +162,7 @@ function MainApp(props: Props) {
               focusScreenBtns={props.focusScreenBtns}
             />
           </div>
-        </Fade>
+        </Zoom>
       )}
       <VideoPlayerWrapper
         onVideoEnded={onVideoEnded}
