@@ -1,19 +1,19 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React, { Dispatch, InputHTMLAttributes, SetStateAction } from 'react';
 import TransparentInput from './general/TransparentInput';
 import style from './TaskInput.module.css';
 
-export interface TaskInputProps {
+export interface TaskInputProps extends InputHTMLAttributes<HTMLInputElement> {
   task: string;
   setTask: Dispatch<SetStateAction<string>>;
   defaultTask: string;
 }
 
-function TaskInput({ task, setTask, defaultTask }: TaskInputProps) {
+function TaskInput({ task, setTask, defaultTask, ...props }: TaskInputProps) {
   return (
     <TransparentInput
       type="text"
       fullWidth
-      className={style.taskInput}
+      className={`${style.taskInput} ${props.className}`}
       value={task}
       onBlur={() => {
         if (task == '') setTask(defaultTask);
