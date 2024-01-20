@@ -1,4 +1,5 @@
 .time {
   color: var(--Text-Primary);
   font-size: 10em;
+  font-feature-settings: 'tnum';
 }
