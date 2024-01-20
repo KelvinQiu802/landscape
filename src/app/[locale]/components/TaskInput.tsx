@@ -2,13 +2,13 @@ import React, { Dispatch, SetStateAction } from 'react';
 import TransparentInput from './general/TransparentInput';
 import style from './TaskInput.module.css';
 
-interface Props {
+export interface TaskInputProps {
   task: string;
   setTask: Dispatch<SetStateAction<string>>;
   defaultTask: string;
 }
 
-function TaskInput({ task, setTask, defaultTask }: Props) {
+function TaskInput({ task, setTask, defaultTask }: TaskInputProps) {
   return (
     <TransparentInput
       type="text"

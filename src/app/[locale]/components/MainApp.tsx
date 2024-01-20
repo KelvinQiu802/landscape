@@ -31,6 +31,7 @@ function MainApp(props: Props) {
   const [isFocus, setIsFocus] = useState(false);
   const [time, setTime] = useState(1500);
   const [showStartingScreen, setShowStartingScreen] = useState(true);
+  const [showFocusingScreen, setShowFocusingScreen] = useState(false);
   const handleFullScreen = useFullScreenHandle();
 
   /* set timer */
@@ -91,13 +92,15 @@ function MainApp(props: Props) {
 
   const removeStartingScreen = () => {
     if (isFocus) {
-      /* remove starting screen if the focus is start */
+      /* remove starting and show focusing screen if the focus is start */
       setShowStartingScreen(false);
+      setShowFocusingScreen(true);
     }
   };
 
   return (
     <FullScreen handle={handleFullScreen}>
+      {/* Starting Screen */}
       {showStartingScreen && (
         <Fade in={isReady && !isFocus} addEndListener={removeStartingScreen}>
           <div className={style.top}>
@@ -117,6 +120,12 @@ function MainApp(props: Props) {
               />
             </Window>
           </div>
+        </Fade>
+      )}
+      {/* Focusing Screen */}
+      {showFocusingScreen && (
+        <Fade in={isReady && isFocus}>
+          <div className={style.top}>Focusing</div>
         </Fade>
       )}
       <VideoPlayerWrapper
