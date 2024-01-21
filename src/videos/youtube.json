@@ -10,5 +10,17 @@
     "title": "Cozy Winter Cave",
     "startingSeconds": 5,
     "coverImg": "https://i.ytimg.com/vi/FslCeCp1GqM/hq720.jpg"
+  },
+  {
+    "id": "tXKw2OC9URo",
+    "title": "Beach Cafe",
+    "startingSeconds": 20,
+    "coverImg": "https://i.ytimg.com/vi/tXKw2OC9URo/hq720.jpg"
+  },
+  {
+    "id": "NJuSStkIZBg",
+    "title": "Rainy Jazz Cafe",
+    "startingSeconds": 45,
+    "coverImg": "https://i.ytimg.com/vi/NJuSStkIZBg/hq720.jpg"
   }
 ]
