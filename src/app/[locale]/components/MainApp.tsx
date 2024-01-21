@@ -146,7 +146,7 @@ function MainApp(props: Props) {
               selectedTag={selectedTag}
               setSelectedTag={setSelectedTag}
             />
-            <Window className={`${style.mainWindow} `}>
+            <Window className={`${style.mainWindow}`}>
               <TopBar appName={props.appName} />
               {/* Timer Page */}
               {selectedTag == 0 && (
@@ -169,7 +169,7 @@ function MainApp(props: Props) {
               {/* Background Page */}
               {selectedTag == 1 && (
                 <Zoom in={selectedTag == 1}>
-                  <div className={style.central}>
+                  <div className={style.videoListBox}>
                     <BackgroundPage />
                   </div>
                 </Zoom>

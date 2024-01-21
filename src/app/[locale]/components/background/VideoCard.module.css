@@ -1,0 +1,32 @@
+.img {
+  border-radius: 16px;
+}
+
+.card {
+  position: relative;
+  height: 144px;
+  width: 256px;
+  cursor: pointer;
+  border-radius: 16px;
+  transition: all 0.2s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.layer {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.15);
+  height: 40px;
+  line-height: 40px;
+  bottom: 0;
+  width: 100%;
+  border-radius: 0px 0px 16px 16px;
+  backdrop-filter: blur(5px);
+  border-top: 1px solid rgba(128, 128, 128, 0.3);
+  color: var(--Text-Primary);
+  padding: 0 17px;
+  vertical-align: top;
+}
