@@ -1,9 +1,11 @@
 import { Video } from '@/index';
 import videos from '@/videos/youtube.json';
 import style from './BackgroundPage.module.css';
-import VideoCard from './VideoCard';
+import VideoCard, { VideoCardProps } from './VideoCard';
 
-export interface BackgroundPageProps {}
+export interface BackgroundPageProps
+  extends Omit<VideoCardProps, keyof Video> {}
+
 function BackgroundPage(props: BackgroundPageProps) {
   return (
     <div className={style.list}>
@@ -14,6 +16,7 @@ function BackgroundPage(props: BackgroundPageProps) {
           title={v.title}
           id={v.id}
           startingSeconds={v.startingSeconds}
+          changeVideo={props.changeVideo}
         />
       ))}
     </div>

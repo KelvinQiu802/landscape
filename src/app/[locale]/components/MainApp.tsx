@@ -43,6 +43,9 @@ function MainApp(props: Props) {
   const [showStartingScreen, setShowStartingScreen] = useState(true);
   const [showFocusingScreen, setShowFocusingScreen] = useState(false);
   const [showClockModeScreen, setShowClockModeScreen] = useState(false);
+  const [videoUrl, setVideoUrl] = useState(
+    'https://www.youtube.com/watch?v=TBu8hw6D63I'
+  ); // 这里封装useVideo
   const handleFullScreen = useFullScreenHandle();
   const [playAlarm] = useSound('/sounds/iphone_ding.mp3', { volume: 1 });
 
@@ -109,6 +112,10 @@ function MainApp(props: Props) {
     setIsPlaying(false);
   };
 
+  const changeVideo = (url: string) => {
+    setVideoUrl(url);
+  };
+
   /* Youtube config */
   const mouseAccess = false;
   const videoConfig: VideoProps = {
@@ -117,7 +124,7 @@ function MainApp(props: Props) {
     loop: false,
     controls: false,
     volume: 1,
-    url: 'https://www.youtube.com/watch?v=TBu8hw6D63I',
+    url: videoUrl,
     onVideoReady,
     onVideoEnded,
     onVideoError,
@@ -170,7 +177,7 @@ function MainApp(props: Props) {
               {selectedTag == 1 && (
                 <Zoom in={selectedTag == 1}>
                   <div className={style.videoListBox}>
-                    <BackgroundPage />
+                    <BackgroundPage changeVideo={changeVideo} />
                   </div>
                 </Zoom>
               )}

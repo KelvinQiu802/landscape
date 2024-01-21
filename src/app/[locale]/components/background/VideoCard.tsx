@@ -2,12 +2,14 @@ import { Video } from '@/index';
 import Image from 'next/image';
 import style from './VideoCard.module.css';
 
-interface VideoCardProps extends Video {}
+export interface VideoCardProps extends Video {
+  changeVideo: (url: string) => void;
+}
 
 function VideoCard(props: VideoCardProps) {
   const videoLink = `https://www.youtube.com/watch?v=${props.id}&t=${props.startingSeconds}`;
   return (
-    <div className={style.card}>
+    <div className={style.card} onClick={() => props.changeVideo(videoLink)}>
       <Image
         src={props.coverImg}
         width={256}
