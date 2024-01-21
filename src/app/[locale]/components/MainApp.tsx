@@ -210,7 +210,7 @@ function MainApp(props: Props) {
               isPlaying={isPlaying}
               isMuted={isMuted}
               setIsPlaying={setIsPlaying}
-              setIsMuted={setIsMuted}
+              toggleMute={toggleMute}
               pause={pause}
               resume={resume}
               toggleFullScreen={toggleFullScreen}

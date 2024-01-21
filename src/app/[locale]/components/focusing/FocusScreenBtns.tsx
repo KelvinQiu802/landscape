@@ -24,7 +24,7 @@ export interface FocusScreenBtnsProps extends FocusScreenBtnsText {
   isPlaying: boolean;
   isMuted: boolean;
   setIsPlaying: Dispatch<SetStateAction<boolean>>;
-  setIsMuted: Dispatch<SetStateAction<boolean>>;
+  toggleMute: () => void;
   pause: () => void;
   resume: () => void;
   toggleFullScreen: () => void;
@@ -61,13 +61,13 @@ function FocusScreenBtns({ focusScreenBtns, ...props }: FocusScreenBtnsProps) {
         <Button
           label={focusScreenBtns.unmute}
           icon={VolumeUpIcon}
-          onClick={() => props.setIsMuted(false)}
+          onClick={props.toggleMute}
         />
       ) : (
         <Button
           label={focusScreenBtns.mute}
           icon={VolumeOffIcon}
-          onClick={() => props.setIsMuted(true)}
+          onClick={props.toggleMute}
         />
       )}
       <Button

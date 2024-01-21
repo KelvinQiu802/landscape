@@ -32,7 +32,7 @@ function FocusScreen(props: FocusScreenProps) {
         isPlaying={props.isPlaying}
         isMuted={props.isMuted}
         setIsPlaying={props.setIsPlaying}
-        setIsMuted={props.setIsMuted}
+        toggleMute={props.toggleMute}
         pause={props.pause}
         resume={props.resume}
         toggleFullScreen={props.toggleFullScreen}
