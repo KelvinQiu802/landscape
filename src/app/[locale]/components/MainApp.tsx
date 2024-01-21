@@ -10,6 +10,7 @@ import { useSound } from 'use-sound';
 import style from './MainApp.module.css';
 import { VideoProps } from './VideoBackground';
 import VideoPlayerWrapper from './VideoPlayerWrapper';
+import BackgroundPage from './background/BackgroundPage';
 import { ClockModeBtnsText } from './clockMode/ClockModeBtns';
 import ClockModeScreen from './clockMode/ClockModeScreen';
 import FocusScreen from './focusing/FocusScreen';
@@ -147,17 +148,32 @@ function MainApp(props: Props) {
             />
             <Window className={`${style.mainWindow} `}>
               <TopBar appName={props.appName} />
-              <TimerPage
-                time={displayTime}
-                setTime={setTargetTime}
-                defaultTask={defaultTask}
-                startFocus={startFocus}
-                toggleFullScreen={toggleFullScreen}
-                startingScreenBtns={props.startingScreenBtns}
-                task={task}
-                setTask={setTask}
-                startClockMode={startClockMode}
-              />
+              {/* Timer Page */}
+              {selectedTag == 0 && (
+                <Zoom in={selectedTag == 0}>
+                  <div className={style.central}>
+                    <TimerPage
+                      time={displayTime}
+                      setTime={setTargetTime}
+                      defaultTask={defaultTask}
+                      startFocus={startFocus}
+                      toggleFullScreen={toggleFullScreen}
+                      startingScreenBtns={props.startingScreenBtns}
+                      task={task}
+                      setTask={setTask}
+                      startClockMode={startClockMode}
+                    />
+                  </div>
+                </Zoom>
+              )}
+              {/* Background Page */}
+              {selectedTag == 1 && (
+                <Zoom in={selectedTag == 1}>
+                  <div className={style.central}>
+                    <BackgroundPage />
+                  </div>
+                </Zoom>
+              )}
             </Window>
           </div>
         </Zoom>
