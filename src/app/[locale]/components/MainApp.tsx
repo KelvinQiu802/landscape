@@ -121,12 +121,12 @@ function MainApp(props: Props) {
   };
 
   /* Youtube config */
-  const mouseAccess = true;
+  const mouseAccess = false;
   const videoConfig: VideoProps = {
     playing: isPlaying,
     mute: isMuted,
     loop: looping,
-    controls: true,
+    controls: false,
     volume: 1,
     url: videoUrl,
     onVideoReady,
