@@ -86,6 +86,14 @@ function MainApp(props: Props) {
     }
   };
 
+  const toggleMute = () => {
+    if (isMuted) {
+      setIsMuted(false);
+    } else {
+      setIsMuted(true);
+    }
+  };
+
   const startFocus = () => {
     setIsFocus(true);
     setIsPlaying(true);
@@ -220,6 +228,8 @@ function MainApp(props: Props) {
               toggleFullScreen={toggleFullScreen}
               exitClockMode={exitClockMode}
               clockModeText={props.clockModeText}
+              toggleMute={toggleMute}
+              isMuted={isMuted}
             />
           </div>
         </Zoom>

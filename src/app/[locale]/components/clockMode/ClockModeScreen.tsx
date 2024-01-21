@@ -50,6 +50,8 @@ function ClockModeScreen(props: ClockScreenProps) {
               hideClockBtns={toggleShowButtonsBar}
               toggleFullScreen={props.toggleFullScreen}
               clockModeText={props.clockModeText}
+              toggleMute={props.toggleMute}
+              isMuted={props.isMuted}
             />
           </div>
         </Zoom>
@@ -62,6 +64,8 @@ function ClockModeScreen(props: ClockScreenProps) {
               hideClockBtns={toggleShowButtonsBar}
               toggleFullScreen={props.toggleFullScreen}
               clockModeText={props.clockModeText}
+              toggleMute={props.toggleMute}
+              isMuted={props.isMuted}
               corner
             />
           </div>

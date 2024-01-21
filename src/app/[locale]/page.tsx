@@ -26,6 +26,8 @@ export default function Home() {
           eixt: t('exit'),
           hideButtons: t('hideButtons'),
           fullScreen: t('fullScreen'),
+          mute: t('mute'),
+          unmute: t('unmute'),
         }}
       />
     </div>
