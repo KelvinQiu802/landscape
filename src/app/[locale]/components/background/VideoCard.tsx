@@ -1,4 +1,5 @@
 import { Video } from '@/index';
+import { youtubeUrlBuilder } from '@/utils/viode';
 import Image from 'next/image';
 import style from './VideoCard.module.css';
 
@@ -7,7 +8,7 @@ export interface VideoCardProps extends Video {
 }
 
 function VideoCard(props: VideoCardProps) {
-  const videoLink = `https://www.youtube.com/watch?v=${props.id}&t=${props.startingSeconds}`;
+  const videoLink = youtubeUrlBuilder(props.id, props.startingSeconds);
   return (
     <div className={style.card} onClick={() => props.changeVideo(videoLink)}>
       <Image

@@ -1,6 +1,7 @@
 'use client';
 
 import useCountdown from '@/hooks/useCountdown';
+import { getRandomYoutubeVideoUrl } from '@/utils/viode';
 import Zoom from '@mui/material/Zoom';
 import { useEffect, useState } from 'react';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
@@ -43,9 +44,8 @@ function MainApp(props: Props) {
   const [showStartingScreen, setShowStartingScreen] = useState(true);
   const [showFocusingScreen, setShowFocusingScreen] = useState(false);
   const [showClockModeScreen, setShowClockModeScreen] = useState(false);
-  const [videoUrl, setVideoUrl] = useState(
-    'https://www.youtube.com/watch?v=TBu8hw6D63I'
-  ); // 这里封装useVideo
+  const [looping, setLooping] = useState(false);
+  const [videoUrl, setVideoUrl] = useState(getRandomYoutubeVideoUrl());
   const handleFullScreen = useFullScreenHandle();
   const [playAlarm] = useSound('/sounds/iphone_ding.mp3', { volume: 1 });
 
@@ -64,7 +64,11 @@ function MainApp(props: Props) {
     setIsReady(true);
   };
   const onVideoProgress = (state: OnProgressProps) => {};
-  const onVideoEnded = () => {};
+  const onVideoEnded = () => {
+    if (looping) return;
+    changeVideo(getRandomYoutubeVideoUrl());
+    setIsPlaying(true);
+  };
   const onVideoError = () => {};
   const removeStartingScreen = () => {
     if (isFocus) {
@@ -117,12 +121,12 @@ function MainApp(props: Props) {
   };
 
   /* Youtube config */
-  const mouseAccess = false;
+  const mouseAccess = true;
   const videoConfig: VideoProps = {
     playing: isPlaying,
     mute: isMuted,
-    loop: false,
-    controls: false,
+    loop: looping,
+    controls: true,
     volume: 1,
     url: videoUrl,
     onVideoReady,
