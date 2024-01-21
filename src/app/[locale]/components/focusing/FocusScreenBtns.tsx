@@ -59,14 +59,14 @@ function FocusScreenBtns({ focusScreenBtns, ...props }: FocusScreenBtnsProps) {
       )}
       {props.isMuted ? (
         <Button
-          label={focusScreenBtns.unmute}
-          icon={VolumeUpIcon}
+          label={focusScreenBtns.mute}
+          icon={VolumeOffIcon}
           onClick={props.toggleMute}
         />
       ) : (
         <Button
-          label={focusScreenBtns.mute}
-          icon={VolumeOffIcon}
+          label={focusScreenBtns.unmute}
+          icon={VolumeUpIcon}
           onClick={props.toggleMute}
         />
       )}

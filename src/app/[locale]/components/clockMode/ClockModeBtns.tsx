@@ -30,9 +30,9 @@ function ClockModeBtns({ clockModeText, ...props }: ClockModeBtnsProps) {
     <ButtonGroup>
       <Button icon={ExitToAppIcon} onClick={props.exitClockMode} />
       {props.isMuted ? (
-        <Button icon={VolumeUpIcon} onClick={props.toggleMute} />
-      ) : (
         <Button icon={VolumeOffIcon} onClick={props.toggleMute} />
+      ) : (
+        <Button icon={VolumeUpIcon} onClick={props.toggleMute} />
       )}
       <Button icon={KeyboardHideIcon} onClick={props.hideClockBtns} />
       <Button icon={FullscreenIcon} onClick={props.toggleFullScreen} />
@@ -46,14 +46,14 @@ function ClockModeBtns({ clockModeText, ...props }: ClockModeBtnsProps) {
       />
       {props.isMuted ? (
         <Button
-          label={clockModeText.unmute}
-          icon={VolumeUpIcon}
+          label={clockModeText.mute}
+          icon={VolumeOffIcon}
           onClick={props.toggleMute}
         />
       ) : (
         <Button
-          label={clockModeText.mute}
-          icon={VolumeOffIcon}
+          label={clockModeText.unmute}
+          icon={VolumeUpIcon}
           onClick={props.toggleMute}
         />
       )}
