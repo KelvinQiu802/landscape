@@ -11,3 +11,17 @@ export function getRandomYoutubeVideoUrl() {
   const v = youtubeVideos[randInt];
   return youtubeUrlBuilder(v.id, v.startingSeconds);
 }
+
+export function getNextYoutubeVideoUrl(url: string) {
+  const urlObj = new URL(url);
+  const currentId = urlObj.searchParams.get('v');
+  const index = youtubeVideos.findIndex((v) => v.id == currentId);
+  if (index == youtubeVideos.length - 1) {
+    // is last video
+    const first = youtubeVideos[0];
+    return youtubeUrlBuilder(first.id, first.startingSeconds);
+  } else {
+    const next = youtubeVideos[index + 1];
+    return youtubeUrlBuilder(next.id, next.startingSeconds);
+  }
+}
