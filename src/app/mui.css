@@ -1,5 +1,6 @@
 /* MUI Customization */
 
+/* Input */
 .MuiInput-input {
   border-radius: 12px;
   font-size: 1.1em;
@@ -18,4 +19,21 @@
 
 .MuiInput-input:focus {
   background: rgba(165, 165, 165, 0.2);
+}
+
+/* Switch */
+.MuiSwitch-root {
+  align-items: center;
+}
+
+.MuiSwitch-root .MuiSwitch-track {
+  background: rgba(186, 186, 186, 0.9);
+}
+
+.MuiSwitch-root .Mui-checked .MuiSwitch-thumb {
+  color: white;
+}
+
+.MuiSwitch-root .Mui-checked + .MuiSwitch-track {
+  background-color: rgb(0, 255, 38);
 }

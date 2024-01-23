@@ -1,0 +1,10 @@
+.box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.label {
+  font-size: 1.1em;
+  color: var(--Text-Primary);
+}
