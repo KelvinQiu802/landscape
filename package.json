@@ -20,7 +20,9 @@
     "react-dom": "^18",
     "react-full-screen": "^1.1.1",
     "react-player": "^2.14.1",
-    "react-timer-hook": "^3.0.7"
+    "react-timer-hook": "^3.0.7",
+    "sharp": "^0.33.2",
+    "use-sound": "^4.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",
