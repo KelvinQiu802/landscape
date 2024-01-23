@@ -3,7 +3,10 @@
 import defaultAppSettings from '@/defaultSettings';
 import useCountdown from '@/hooks/useCountdown';
 import { AppSettings } from '@/index';
-import { getRandomYoutubeVideoUrl } from '@/utils/viode';
+import {
+  getNextYoutubeVideoUrl,
+  getRandomYoutubeVideoUrl,
+} from '@/utils/viode';
 import Zoom from '@mui/material/Zoom';
 import {
   Dispatch,
@@ -50,8 +53,8 @@ function MainApp(props: Props) {
   const [appSettings, setAppSettings] = useState(defaultAppSettings);
   const [task, setTask] = useState(defaultTask);
   const [isReady, setIsReady] = useState(false);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isMuted, setIsMuted] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(appSettings.background.autoPlay);
+  const [isMuted, setIsMuted] = useState(false);
   const [selectedTag, setSelectedTag] = useState(0);
   const [isFocus, setIsFocus] = useState(false);
   const [targetTime, setTargetTime] = useState(25 * 60);
@@ -59,10 +62,12 @@ function MainApp(props: Props) {
   const [showStartingScreen, setShowStartingScreen] = useState(true);
   const [showFocusingScreen, setShowFocusingScreen] = useState(false);
   const [showClockModeScreen, setShowClockModeScreen] = useState(false);
-  const [looping, setLooping] = useState(false);
+  const [looping, setLooping] = useState(appSettings.background.playOrder == 1);
   const [videoUrl, setVideoUrl] = useState(getRandomYoutubeVideoUrl());
   const handleFullScreen = useFullScreenHandle();
-  const [playAlarm] = useSound('/sounds/iPhone-ding.mp3', { volume: 1 });
+  const [playAlarm] = useSound(`/sounds/${appSettings.alarm.type}`, {
+    volume: appSettings.alarm.volume,
+  });
 
   /* set timer */
   const onExpire = () => {
@@ -81,6 +86,11 @@ function MainApp(props: Props) {
   const onVideoProgress = (state: OnProgressProps) => {};
   const onVideoEnded = () => {
     if (looping) return;
+    if (appSettings.background.playOrder == 2) {
+      // sequential: get next video
+      changeVideo(getNextYoutubeVideoUrl(videoUrl));
+      return;
+    }
     changeVideo(getRandomYoutubeVideoUrl());
     setIsPlaying(true);
   };
