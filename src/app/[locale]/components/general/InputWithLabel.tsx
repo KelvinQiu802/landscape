@@ -1,4 +1,5 @@
 import { Input, InputProps } from '@mui/material';
+import { forwardRef } from 'react';
 import style from './InputWithLabel.module.css';
 
 export interface InputWithLabelProps extends InputProps {
@@ -6,15 +7,23 @@ export interface InputWithLabelProps extends InputProps {
   width: number;
 }
 
-function InputWithLabel(props: InputWithLabelProps) {
+const InputWithLabel = forwardRef(function InputWithLabel(
+  props: InputWithLabelProps,
+  ref
+) {
   return (
     <div>
       <label>
         <div className={style.label}>{props.label}</div>
-        <Input {...props} disableUnderline sx={{ width: props.width }} />
+        <Input
+          {...props}
+          disableUnderline
+          sx={{ width: props.width }}
+          ref={ref}
+        />
       </label>
     </div>
   );
-}
+});
 
 export default InputWithLabel;
