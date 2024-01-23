@@ -53,7 +53,7 @@ function MainApp(props: Props) {
   const [looping, setLooping] = useState(false);
   const [videoUrl, setVideoUrl] = useState(getRandomYoutubeVideoUrl());
   const handleFullScreen = useFullScreenHandle();
-  const [playAlarm] = useSound('/sounds/iphone_ding.mp3', { volume: 1 });
+  const [playAlarm] = useSound('/sounds/iPhone-ding.mp3', { volume: 1 });
 
   /* set timer */
   const onExpire = () => {
