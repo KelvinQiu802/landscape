@@ -71,6 +71,22 @@ function SettingsPage() {
       </div>
       <div className={style.tab}>
         <div className={style.title}>Countdown Alarm</div>
+        <div className={style.tab}>
+          <div className={style.subTitle}>Type</div>
+          <div className={style.flexRow}>
+            {/* // TODO: 改成循环 */}
+            <CheckboxWithLabel
+              label="None"
+              value={'none'}
+              checked={settings.alarm.type == 'none'}
+            />
+            <CheckboxWithLabel
+              label="iPhone"
+              value={'iPhone-ding'}
+              checked={settings.alarm.type == 'iPhone-ding'}
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
