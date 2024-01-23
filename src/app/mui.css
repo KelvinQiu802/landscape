@@ -43,6 +43,15 @@
   color: var(--Text-Primary);
 }
 
+/* Radio */
+.MuiRadio-root {
+  color: var(--Text-Primary);
+}
+
+.MuiRadio-root.Mui-checked {
+  color: var(--Text-Primary);
+}
+
 /* Slider */
 .MuiSlider-root .MuiSlider-rail {
   color: var(--Text-Primary);
@@ -54,4 +63,8 @@
 
 .MuiSlider-root .MuiSlider-thumb {
   color: rgba(255, 255, 255, 1);
+}
+
+.MuiSlider-root .MuiSlider-thumb:hover {
+  box-shadow: none;
 }
