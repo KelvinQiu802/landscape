@@ -1,3 +1,5 @@
+import { VolumeDown, VolumeUp } from '@mui/icons-material';
+import { Slider, Stack } from '@mui/material';
 import { useContext } from 'react';
 import { AppSettingsContext } from '../MainApp';
 import CheckboxWithLabel from '../general/CheckboxWithLabel';
@@ -86,7 +88,21 @@ function SettingsPage() {
               checked={settings.alarm.type == 'iPhone-ding'}
             />
           </div>
+          <div className={style.subTitle}>Volume</div>
+          <Stack spacing={2} direction="row" sx={{ mb: 1 }} alignItems="center">
+            <VolumeDown />
+            <Slider
+              aria-label="Volume"
+              // value={settings.alarm.volume}
+              value={0.5}
+              min={0}
+              max={1}
+              sx={{ width: 150 }}
+            />
+            <VolumeUp />
+          </Stack>
         </div>
+        <div className={style.last}></div>
       </div>
     </div>
   );
