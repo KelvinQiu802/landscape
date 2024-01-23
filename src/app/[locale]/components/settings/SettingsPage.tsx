@@ -24,8 +24,6 @@ function SettingsPage() {
       defaultValues: appSettings,
     });
 
-  console.log(formState);
-
   const onSubmit: SubmitHandler<AppSettings> = (data) => {
     console.log(data);
     setAppSettings(data);
