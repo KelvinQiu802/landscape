@@ -1,9 +1,11 @@
 'use client';
 
+import defaultAppSettings from '@/defaultSettings';
 import useCountdown from '@/hooks/useCountdown';
+import { AppSettings } from '@/index';
 import { getRandomYoutubeVideoUrl } from '@/utils/viode';
 import Zoom from '@mui/material/Zoom';
-import { useEffect, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import { OnProgressProps } from 'react-player/base';
 // @ts-ignore
@@ -18,6 +20,7 @@ import FocusScreen from './focusing/FocusScreen';
 import { FocusScreenBtnsText } from './focusing/FocusScreenBtns';
 import MediaButtons from './general/MediaButtons';
 import Window from './general/Window';
+import SettingsPage from './settings/SettingsPage';
 import LeftControlBar from './starting/LeftControlBar';
 import { StartingScreenBtnsText } from './starting/StartingScreenBtns';
 import TimerPage from './starting/TimerPage';
@@ -30,6 +33,8 @@ interface Props
     ClockModeBtnsText {
   task: string;
 }
+
+const AppSettingsContext = createContext<AppSettings>(defaultAppSettings);
 
 function MainApp(props: Props) {
   const defaultTask = props.task;
@@ -152,97 +157,107 @@ function MainApp(props: Props) {
   }, [targetTime]);
 
   return (
-    <FullScreen handle={handleFullScreen}>
-      {/* Starting Screen */}
-      {showStartingScreen && (
-        <Zoom
-          in={isReady && !isFocus}
-          addEndListener={removeStartingScreen}
-          timeout={400}
-        >
-          <div className={style.top}>
-            <LeftControlBar
-              selectedTag={selectedTag}
-              setSelectedTag={setSelectedTag}
-            />
-            <Window className={`${style.mainWindow}`}>
-              <TopBar appName={props.appName} />
-              {/* Timer Page */}
-              {selectedTag == 0 && (
-                <Zoom in={selectedTag == 0}>
-                  <div className={style.central}>
-                    <TimerPage
-                      time={displayTime}
-                      setTime={setTargetTime}
-                      defaultTask={defaultTask}
-                      startFocus={startFocus}
-                      toggleFullScreen={toggleFullScreen}
-                      startingScreenBtns={props.startingScreenBtns}
-                      task={task}
-                      setTask={setTask}
-                      startClockMode={startClockMode}
-                    />
-                  </div>
-                </Zoom>
-              )}
-              {/* Background Page */}
-              {selectedTag == 1 && (
-                <Zoom in={selectedTag == 1}>
-                  <div className={style.videoListBox}>
-                    <BackgroundPage changeVideo={changeVideo} />
-                  </div>
-                </Zoom>
-              )}
-            </Window>
-          </div>
-        </Zoom>
-      )}
-      {/* Focusing Screen */}
-      {showFocusingScreen && (
-        <Zoom in={isReady && isFocus} timeout={400}>
-          <div className={style.top}>
-            <FocusScreen
-              time={displayTime}
-              task={task}
-              setTask={setTask}
-              defaultTask={defaultTask}
-              finishFocus={finishFocus}
-              isPlaying={isPlaying}
-              isMuted={isMuted}
-              setIsPlaying={setIsPlaying}
-              toggleMute={toggleMute}
-              pause={pause}
-              resume={resume}
-              toggleFullScreen={toggleFullScreen}
-              focusScreenBtns={props.focusScreenBtns}
-            />
-            <MediaButtons hideBackground className={style.focusMedia} />
-          </div>
-        </Zoom>
-      )}
-      {/* Clock Mode Screen */}
-      {showClockModeScreen && (
-        <Zoom in={showClockModeScreen}>
-          <div className={style.top}>
-            <ClockModeScreen
-              toggleFullScreen={toggleFullScreen}
-              exitClockMode={exitClockMode}
-              clockModeText={props.clockModeText}
-              toggleMute={toggleMute}
-              isMuted={isMuted}
-            />
-          </div>
-        </Zoom>
-      )}
-      <VideoPlayerWrapper
-        onVideoEnded={onVideoEnded}
-        onVideoError={onVideoError}
-        onVideoProgress={onVideoProgress}
-        onVideoReady={onVideoReady}
-        videoConfig={videoConfig}
-        mouseAccess={mouseAccess}
-      />
-    </FullScreen>
+    <AppSettingsContext.Provider value={defaultAppSettings}>
+      <FullScreen handle={handleFullScreen}>
+        {/* Starting Screen */}
+        {showStartingScreen && (
+          <Zoom
+            in={isReady && !isFocus}
+            addEndListener={removeStartingScreen}
+            timeout={400}
+          >
+            <div className={style.top}>
+              <LeftControlBar
+                selectedTag={selectedTag}
+                setSelectedTag={setSelectedTag}
+              />
+              <Window className={`${style.mainWindow}`}>
+                <TopBar appName={props.appName} />
+                {/* Timer Page */}
+                {selectedTag == 0 && (
+                  <Zoom in={selectedTag == 0}>
+                    <div className={style.central}>
+                      <TimerPage
+                        time={displayTime}
+                        setTime={setTargetTime}
+                        defaultTask={defaultTask}
+                        startFocus={startFocus}
+                        toggleFullScreen={toggleFullScreen}
+                        startingScreenBtns={props.startingScreenBtns}
+                        task={task}
+                        setTask={setTask}
+                        startClockMode={startClockMode}
+                      />
+                    </div>
+                  </Zoom>
+                )}
+                {/* Background Page */}
+                {selectedTag == 1 && (
+                  <Zoom in={selectedTag == 1}>
+                    <div className={style.videoListBox}>
+                      <BackgroundPage changeVideo={changeVideo} />
+                    </div>
+                  </Zoom>
+                )}
+                {/* App Settings Page */}
+                {selectedTag == 2 && (
+                  <Zoom in={selectedTag == 2}>
+                    <div>
+                      <SettingsPage />
+                    </div>
+                  </Zoom>
+                )}
+              </Window>
+            </div>
+          </Zoom>
+        )}
+        {/* Focusing Screen */}
+        {showFocusingScreen && (
+          <Zoom in={isReady && isFocus} timeout={400}>
+            <div className={style.top}>
+              <FocusScreen
+                time={displayTime}
+                task={task}
+                setTask={setTask}
+                defaultTask={defaultTask}
+                finishFocus={finishFocus}
+                isPlaying={isPlaying}
+                isMuted={isMuted}
+                setIsPlaying={setIsPlaying}
+                toggleMute={toggleMute}
+                pause={pause}
+                resume={resume}
+                toggleFullScreen={toggleFullScreen}
+                focusScreenBtns={props.focusScreenBtns}
+              />
+              <MediaButtons hideBackground className={style.focusMedia} />
+            </div>
+          </Zoom>
+        )}
+        {/* Clock Mode Screen */}
+        {showClockModeScreen && (
+          <Zoom in={showClockModeScreen}>
+            <div className={style.top}>
+              <ClockModeScreen
+                toggleFullScreen={toggleFullScreen}
+                exitClockMode={exitClockMode}
+                clockModeText={props.clockModeText}
+                toggleMute={toggleMute}
+                isMuted={isMuted}
+              />
+            </div>
+          </Zoom>
+        )}
+        <VideoPlayerWrapper
+          onVideoEnded={onVideoEnded}
+          onVideoError={onVideoError}
+          onVideoProgress={onVideoProgress}
+          onVideoReady={onVideoReady}
+          videoConfig={videoConfig}
+          mouseAccess={mouseAccess}
+        />
+      </FullScreen>
+    </AppSettingsContext.Provider>
   );
 }
 
