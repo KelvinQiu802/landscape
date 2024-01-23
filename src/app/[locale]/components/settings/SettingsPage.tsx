@@ -7,9 +7,10 @@ import {
   Radio,
   RadioGroup,
   Slider,
+  Snackbar,
   Stack,
 } from '@mui/material';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import { AppSettingsContext } from '../MainApp';
 import Button from '../general/Button';
@@ -19,14 +20,15 @@ import style from './SettingsPage.module.css';
 
 function SettingsPage() {
   const { appSettings, setAppSettings } = useContext(AppSettingsContext);
+  const [showSnackbar, setShowSnackbar] = useState(false);
   const { register, watch, handleSubmit, formState, control } =
     useForm<AppSettings>({
       defaultValues: appSettings,
     });
 
   const onSubmit: SubmitHandler<AppSettings> = (data) => {
-    console.log(data);
     setAppSettings(data);
+    setShowSnackbar(true);
   };
 
   return (
@@ -149,6 +151,13 @@ function SettingsPage() {
           onClick={handleSubmit(onSubmit)}
         />
       </div>
+      <Snackbar
+        open={showSnackbar}
+        autoHideDuration={1000}
+        onClose={() => setShowSnackbar(false)}
+        message="Saved and Applied!"
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      />
     </div>
   );
 }
