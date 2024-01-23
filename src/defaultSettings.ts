@@ -11,7 +11,7 @@ const defaultAppSettings: AppSettings = {
     playOrder: 0, // random
   },
   alarm: {
-    type: 'iPhone-ding',
+    type: 'iPhone-ding.mp3',
     volume: 1,
   },
 };

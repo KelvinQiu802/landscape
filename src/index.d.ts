@@ -16,8 +16,6 @@ export enum PlayOrder {
   sequential = 2,
 }
 
-export type AlarmType = 'none' | 'iPhone-ding';
-
 export interface AppSettings {
   timer: {
     pomodoro: number;
@@ -29,7 +27,7 @@ export interface AppSettings {
     playOrder: PlayOrder;
   };
   alarm: {
-    type: AlarmType;
+    type: string; // the file name
     volume: number;
   };
 }

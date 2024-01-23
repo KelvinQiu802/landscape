@@ -1,3 +1,5 @@
+import alarmList from '@/data/alarm.json';
+import { Alarm } from '@/index';
 import { VolumeDown, VolumeUp } from '@mui/icons-material';
 import CheckIcon from '@mui/icons-material/Check';
 import { Slider, Stack } from '@mui/material';
@@ -73,17 +75,14 @@ function SettingsPage() {
       <div className={style.tab}>
         <div className={style.subTitle}>Type</div>
         <div className={style.flexRow}>
-          {/* // TODO: 改成循环 */}
-          <CheckboxWithLabel
-            label="None"
-            value={'none'}
-            checked={settings.alarm.type == 'none'}
-          />
-          <CheckboxWithLabel
-            label="iPhone"
-            value={'iPhone-ding'}
-            checked={settings.alarm.type == 'iPhone-ding'}
-          />
+          {(alarmList as Alarm[]).map((alarm) => (
+            <CheckboxWithLabel
+              key={alarm.fileName}
+              label={alarm.name}
+              value={alarm.fileName}
+              checked={settings.alarm.type == alarm.fileName}
+            />
+          ))}
         </div>
         <div className={style.subTitle}>Volume</div>
         <Stack spacing={2} direction="row" sx={{ mb: 1 }} alignItems="center">
