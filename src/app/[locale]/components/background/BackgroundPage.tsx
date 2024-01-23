@@ -1,5 +1,5 @@
+import videos from '@/data/youtube.json';
 import { Video } from '@/index';
-import videos from '@/videos/youtube.json';
 import style from './BackgroundPage.module.css';
 import VideoCard, { VideoCardProps } from './VideoCard';
 

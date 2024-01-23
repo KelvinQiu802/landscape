@@ -1,4 +1,4 @@
-import youtubeVideos from '@/videos/youtube.json';
+import youtubeVideos from '@/data/youtube.json';
 import { getRandomInt } from './number';
 
 export function youtubeUrlBuilder(id: string, startingSeconds: number): string {
