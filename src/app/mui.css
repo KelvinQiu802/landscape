@@ -37,3 +37,8 @@
 .MuiSwitch-root .Mui-checked + .MuiSwitch-track {
   background-color: rgb(0, 255, 38);
 }
+
+/* Checkbox */
+.MuiCheckbox-root .MuiSvgIcon-root {
+  color: var(--Text-Primary);
+}
