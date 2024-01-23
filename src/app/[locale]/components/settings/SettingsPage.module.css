@@ -18,8 +18,8 @@
   gap: 40px;
 }
 
-.justifyEnd {
-  justify-content: end;
+.spaceBetween {
+  justify-content: space-between;
 }
 
 .last {
@@ -45,4 +45,8 @@
 
 .mb {
   margin-bottom: 10px;
+}
+
+.error {
+  font-size: 1.2em;
 }

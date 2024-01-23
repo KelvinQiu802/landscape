@@ -12,7 +12,7 @@ const defaultAppSettings: AppSettings = {
   },
   alarm: {
     type: 'iPhone-ding.mp3',
-    volume: 1,
+    volume: 0.8,
   },
 };
 

@@ -5,7 +5,13 @@ import useCountdown from '@/hooks/useCountdown';
 import { AppSettings } from '@/index';
 import { getRandomYoutubeVideoUrl } from '@/utils/viode';
 import Zoom from '@mui/material/Zoom';
-import { createContext, useEffect, useState } from 'react';
+import {
+  Dispatch,
+  SetStateAction,
+  createContext,
+  useEffect,
+  useState,
+} from 'react';
 import { FullScreen, useFullScreenHandle } from 'react-full-screen';
 import { OnProgressProps } from 'react-player/base';
 // @ts-ignore
@@ -34,11 +40,14 @@ interface Props
   task: string;
 }
 
-export const AppSettingsContext =
-  createContext<AppSettings>(defaultAppSettings);
+export const AppSettingsContext = createContext<{
+  appSettings: AppSettings;
+  setAppSettings: Dispatch<SetStateAction<AppSettings>>;
+}>({ appSettings: defaultAppSettings, setAppSettings: () => {} });
 
 function MainApp(props: Props) {
   const defaultTask = props.task;
+  const [appSettings, setAppSettings] = useState(defaultAppSettings);
   const [task, setTask] = useState(defaultTask);
   const [isReady, setIsReady] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -158,7 +167,7 @@ function MainApp(props: Props) {
   }, [targetTime]);
 
   return (
-    <AppSettingsContext.Provider value={defaultAppSettings}>
+    <AppSettingsContext.Provider value={{ appSettings, setAppSettings }}>
       <FullScreen handle={handleFullScreen}>
         {/* Starting Screen */}
         {showStartingScreen && (
