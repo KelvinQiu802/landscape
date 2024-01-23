@@ -9,8 +9,10 @@ export interface InputWithLabelProps extends InputProps {
 function InputWithLabel(props: InputWithLabelProps) {
   return (
     <div>
-      <div className={style.label}>{props.label}</div>
-      <Input {...props} disableUnderline sx={{ width: props.width }} />
+      <label>
+        <div className={style.label}>{props.label}</div>
+        <Input {...props} disableUnderline sx={{ width: props.width }} />
+      </label>
     </div>
   );
 }
