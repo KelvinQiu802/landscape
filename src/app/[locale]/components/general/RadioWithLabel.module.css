@@ -1,9 +1,0 @@
-.box {
-  display: flex;
-  align-items: center;
-}
-
-.label {
-  color: var(--Text-Primary);
-  font-size: 1em;
-}
