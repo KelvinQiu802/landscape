@@ -203,7 +203,7 @@ function MainApp(props: Props) {
                 {/* App Settings Page */}
                 {selectedTag == 2 && (
                   <Zoom in={selectedTag == 2}>
-                    <div>
+                    <div className={style.central}>
                       <SettingsPage />
                     </div>
                   </Zoom>

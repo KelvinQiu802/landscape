@@ -18,6 +18,10 @@
   gap: 40px;
 }
 
+.justifyEnd {
+  justify-content: end;
+}
+
 .last {
   margin-bottom: 35px;
 }
