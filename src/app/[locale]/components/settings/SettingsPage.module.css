@@ -1,5 +1,24 @@
 .box {
   color: var(--Text-Primary);
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.box::-webkit-scrollbar {
+  width: 10px;
+}
+
+.box::-webkit-scrollbar-track {
+  background: none;
+}
+
+.box::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 100px;
+}
+
+.box::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
 }
 
 .title {
@@ -20,6 +39,7 @@
 
 .spaceBetween {
   justify-content: space-between;
+  padding-right: 10px;
 }
 
 .last {
