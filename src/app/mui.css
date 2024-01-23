@@ -1,0 +1,21 @@
+/* MUI Customization */
+
+.MuiInput-input {
+  border-radius: 12px;
+  font-size: 1.1em;
+  padding: 6px 20px;
+  outline: none;
+  border: none;
+  color: var(--Text-Secondary);
+  transition: all 0.2s ease-in-out;
+  background-blend-mode: luminosity, color-burn;
+  background: rgba(142, 142, 142, 0.2);
+  box-shadow: 1px 1.5px 4px 0px rgba(0, 0, 0, 0.1) inset,
+    1px 1.5px 4px 0px rgba(0, 0, 0, 0.08) inset,
+    0px -0.5px 1px 0px rgba(255, 255, 255, 0.25) inset,
+    0px -0.5px 1px 0px rgba(255, 255, 255, 0.3) inset;
+}
+
+.MuiInput-input:focus {
+  background: rgba(165, 165, 165, 0.2);
+}

@@ -1,4 +1,5 @@
 import '@/app/globals.css';
+import '@/app/mui.css';
 import { useTranslations } from 'next-intl';
 import MainApp from './components/MainApp';
 
