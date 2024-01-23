@@ -1,7 +1,9 @@
 import { VolumeDown, VolumeUp } from '@mui/icons-material';
+import CheckIcon from '@mui/icons-material/Check';
 import { Slider, Stack } from '@mui/material';
 import { useContext } from 'react';
 import { AppSettingsContext } from '../MainApp';
+import Button from '../general/Button';
 import CheckboxWithLabel from '../general/CheckboxWithLabel';
 import InputWithLabel from '../general/InputWithLabel';
 import SwitchWithLabel from '../general/SwitchWithLabel';
@@ -98,6 +100,9 @@ function SettingsPage() {
         </Stack>
       </div>
       <div className={style.last}></div>
+      <div className={`${style.flexRow} ${style.justifyEnd}`}>
+        <Button label="Save and Apply" icon={CheckIcon} />
+      </div>
     </div>
   );
 }
