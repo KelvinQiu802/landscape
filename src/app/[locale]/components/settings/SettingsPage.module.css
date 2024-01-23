@@ -1,0 +1,29 @@
+.box {
+  color: var(--Text-Primary);
+}
+
+.title {
+  font-size: 1.25em;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.tab {
+  margin-left: 25px;
+}
+
+.flexRow {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.last {
+  margin-bottom: 20px;
+}
+
+.unit {
+  color: var(--Text-Secondary);
+  margin-left: 10px;
+  font-size: 1.1em;
+}

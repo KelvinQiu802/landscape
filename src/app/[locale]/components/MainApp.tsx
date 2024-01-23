@@ -34,7 +34,8 @@ interface Props
   task: string;
 }
 
-const AppSettingsContext = createContext<AppSettings>(defaultAppSettings);
+export const AppSettingsContext =
+  createContext<AppSettings>(defaultAppSettings);
 
 function MainApp(props: Props) {
   const defaultTask = props.task;
