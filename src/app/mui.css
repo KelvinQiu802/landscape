@@ -42,3 +42,16 @@
 .MuiCheckbox-root .MuiSvgIcon-root {
   color: var(--Text-Primary);
 }
+
+/* Slider */
+.MuiSlider-root .MuiSlider-rail {
+  color: var(--Text-Primary);
+}
+
+.MuiSlider-root .MuiSlider-track {
+  color: var(--Text-Primary);
+}
+
+.MuiSlider-root .MuiSlider-thumb {
+  color: rgba(255, 255, 255, 1);
+}
