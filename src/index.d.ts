@@ -5,6 +5,11 @@ export interface Video {
   coverImg: string;
 }
 
+export interface Alarm {
+  name: string;
+  fileName: string;
+}
+
 export enum PlayOrder {
   random = 0,
   loop = 1,
