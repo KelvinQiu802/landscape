@@ -1,5 +1,6 @@
 import { useContext } from 'react';
 import { AppSettingsContext } from '../MainApp';
+import CheckboxWithLabel from '../general/CheckboxWithLabel';
 import InputWithLabel from '../general/InputWithLabel';
 import SwitchWithLabel from '../general/SwitchWithLabel';
 import style from './SettingsPage.module.css';
@@ -44,8 +45,26 @@ function SettingsPage() {
             label="Auto Play"
             value={settings.background.autoPlay}
           />
-          <div className={style.desc}>
+          <div className={`${style.desc} ${style.mb}`}>
             Auto play will mute the video by default.
+          </div>
+          <div className={style.subTitle}>Play Order</div>
+          <div className={style.flexRow}>
+            <CheckboxWithLabel
+              label="Random"
+              value={0}
+              checked={settings.background.playOrder == 0}
+            />
+            <CheckboxWithLabel
+              label="Loop"
+              value={1}
+              checked={settings.background.playOrder == 1}
+            />
+            <CheckboxWithLabel
+              label="Sequential"
+              value={2}
+              checked={settings.background.playOrder == 2}
+            />
           </div>
         </div>
         <div className={style.last}></div>

@@ -19,7 +19,7 @@
 }
 
 .last {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .unit {
@@ -31,4 +31,13 @@
 .desc {
   color: var(--Text-Secondary);
   font-size: 0.9em;
+}
+
+.subTitle {
+  color: var(--Text-Primary);
+  font-size: 1.2em;
+}
+
+.mb {
+  margin-bottom: 10px;
 }
