@@ -50,6 +50,7 @@ export default function Home() {
           inputError: t('inputError'),
           saveAndApply: t('saveAndApply'),
           saved: t('saved'),
+          language: t('language'),
         }}
         timerPageText={{
           switchTimeHint: t('switchTimeHint'),

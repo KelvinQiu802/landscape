@@ -43,6 +43,7 @@ export interface SettingsPageText {
     inputError: string;
     saveAndApply: string;
     saved: string;
+    language: string;
   };
 }
 
@@ -203,7 +204,7 @@ function SettingsPage({ settingsPageText }: SettingsPageText) {
       </div>
       <div className={style.last}></div>
       {/* Language isn't included in the settings, not necessary */}
-      <div className={style.title}>Language</div>
+      <div className={style.title}>{settingsPageText.language}</div>
       <div className={style.tab}>
         <RadioGroup
           value={locale}

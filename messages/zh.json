@@ -32,6 +32,7 @@
     "inputError": "设置项不能为空!",
     "saveAndApply": "保存并应用",
     "saved": "已保存!",
-    "switchTimeHint": "点击计时器来切换番茄和休息时间"
+    "switchTimeHint": "点击计时器来切换番茄和休息时间",
+    "language": "语言"
   }
 }
