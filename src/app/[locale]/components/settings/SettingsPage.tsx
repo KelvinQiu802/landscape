@@ -1,5 +1,6 @@
 import alarmList from '@/data/alarm.json';
 import { Alarm, AppSettings } from '@/index';
+import { useRouter } from '@/utils/navigation';
 import { VolumeDown, VolumeUp } from '@mui/icons-material';
 import CheckIcon from '@mui/icons-material/Check';
 import HeadphonesIcon from '@mui/icons-material/Headphones';
@@ -14,7 +15,6 @@ import {
 import { useContext, useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 // @ts-ignore
-import { useRouter } from '@/utils/navigation';
 import useSound from 'use-sound';
 import { AppSettingsContext } from '../MainApp';
 import Button from '../general/Button';
