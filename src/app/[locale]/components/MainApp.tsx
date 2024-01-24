@@ -32,7 +32,7 @@ import Window from './general/Window';
 import SettingsPage, { SettingsPageText } from './settings/SettingsPage';
 import LeftControlBar from './starting/LeftControlBar';
 import { StartingScreenBtnsText } from './starting/StartingScreenBtns';
-import TimerPage from './starting/TimerPage';
+import TimerPage, { TimerPageText } from './starting/TimerPage';
 import TopBar, { TopBarProps } from './starting/TopBar';
 
 interface Props
@@ -40,7 +40,8 @@ interface Props
     StartingScreenBtnsText,
     FocusScreenBtnsText,
     ClockModeBtnsText,
-    SettingsPageText {
+    SettingsPageText,
+    TimerPageText {
   task: string;
 }
 
@@ -224,6 +225,7 @@ function MainApp(props: Props) {
                         task={task}
                         setTask={setTask}
                         startClockMode={startClockMode}
+                        timerPageText={props.timerPageText}
                       />
                     </div>
                   </Zoom>

@@ -51,6 +51,9 @@ export default function Home() {
           saveAndApply: t('saveAndApply'),
           saved: t('saved'),
         }}
+        timerPageText={{
+          switchTimeHint: t('switchTimeHint'),
+        }}
       />
     </div>
   );

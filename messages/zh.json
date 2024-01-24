@@ -31,6 +31,7 @@
     "volume": "音量",
     "inputError": "设置项不能为空!",
     "saveAndApply": "保存并应用",
-    "saved": "已保存!"
+    "saved": "已保存!",
+    "switchTimeHint": "点击计时器来切换番茄和休息时间"
   }
 }

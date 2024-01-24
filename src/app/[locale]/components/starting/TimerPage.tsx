@@ -6,10 +6,17 @@ import StartingScreenBtns, {
 import Timer, { TimerProps } from './Timer';
 import style from './TimerPage.module.css';
 
+export interface TimerPageText {
+  timerPageText: {
+    switchTimeHint: string;
+  };
+}
+
 export interface TimerPageProps
   extends TimerProps,
     StartingScreenBtnsProps,
-    TaskInputProps {}
+    TaskInputProps,
+    TimerPageText {}
 
 function TimerPage({
   startFocus,
@@ -21,6 +28,7 @@ function TimerPage({
   setTask,
   startClockMode,
   defaultTask,
+  timerPageText,
 }: TimerPageProps) {
   return (
     <div className={style.central}>
@@ -38,9 +46,7 @@ function TimerPage({
         startingScreenBtns={startingScreenBtns}
       />
       <div className={style.hints}>
-        <div className={style.hint}>
-          • Click the timer to switch between Pomodoro and Break.
-        </div>
+        <div className={style.hint}>{`• ${timerPageText.switchTimeHint}`}</div>
       </div>
     </div>
   );

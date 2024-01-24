@@ -31,6 +31,7 @@
     "volume": "Volume",
     "inputError": "All input fields must not be empty!",
     "saveAndApply": "Save and Apply",
-    "saved": "Saved and Applied!"
+    "saved": "Saved and Applied!",
+    "switchTimeHint": "Click the timer to switch between Pomodoro and Break."
   }
 }
