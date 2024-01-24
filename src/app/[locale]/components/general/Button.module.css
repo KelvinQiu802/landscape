@@ -20,6 +20,10 @@
   background-color: rgba(255, 255, 255, 0);
 }
 
+.btn.hideBg:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
 .round {
   padding: 11px 11px;
 }
