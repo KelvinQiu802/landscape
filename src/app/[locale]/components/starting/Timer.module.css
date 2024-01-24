@@ -2,4 +2,6 @@
   color: var(--Text-Primary);
   font-size: 10em;
   font-feature-settings: 'tnum';
+  user-select: none;
+  cursor: pointer;
 }
