@@ -2,5 +2,13 @@
   {
     "name": "iPhone",
     "fileName": "iPhone-ding.mp3"
+  },
+  {
+    "name": "Toaster",
+    "fileName": "toaster.mp3"
+  },
+  {
+    "name": "Scale",
+    "fileName": "scale.mp3"
   }
 ]
