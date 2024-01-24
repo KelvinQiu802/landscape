@@ -20,8 +20,8 @@
   color: var(--Text-Secondary);
 }
 
-.MuiInputBase-root.MuiInput-root .MuiInputBase-input.MuiInput-input:focus {
-  background: rgba(165, 165, 165, 0.2);
+.MuiInputBase-root.MuiInput-root:hover {
+  background: rgba(165, 165, 165, 0.25);
 }
 
 /* Switch */

@@ -20,9 +20,11 @@
 }
 
 .mainWindow {
-  width: 55%;
-  height: 60%;
+  width: 60%;
+  height: 65%;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .focusMedia {
@@ -32,14 +34,12 @@
 }
 
 .central {
-  position: relative;
-  bottom: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  z-index: -1;
+  flex-grow: 1;
+  overflow: hidden;
 }
 
 .videoListBox {

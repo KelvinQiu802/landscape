@@ -2,6 +2,8 @@
   color: var(--Text-Primary);
   overflow: scroll;
   overflow-x: hidden;
+  padding: 0px 30px;
+  padding-bottom: 20px;
 }
 
 .box::-webkit-scrollbar {
@@ -24,7 +26,7 @@
 .title {
   font-size: 1.3em;
   font-weight: 500;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .tab {
@@ -43,7 +45,7 @@
 }
 
 .last {
-  margin-bottom: 35px;
+  margin-bottom: 15px;
 }
 
 .unit {
@@ -61,7 +63,6 @@
 .subTitle {
   color: var(--Text-Primary);
   font-size: 1.2em;
-  margin-top: 3px;
 }
 
 .mb {
