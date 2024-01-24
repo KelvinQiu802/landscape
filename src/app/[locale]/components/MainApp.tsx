@@ -54,7 +54,7 @@ function MainApp(props: Props) {
   const [task, setTask] = useState(defaultTask);
   const [isReady, setIsReady] = useState(false);
   const [isPlaying, setIsPlaying] = useState(appSettings.background.autoPlay);
-  const [isMuted, setIsMuted] = useState(false);
+  const [isMuted, setIsMuted] = useState(isPlaying ? true : false);
   const [selectedTag, setSelectedTag] = useState(0);
   const [isFocus, setIsFocus] = useState(false);
   const [targetTime, setTargetTime] = useState(25 * 60);
@@ -167,6 +167,17 @@ function MainApp(props: Props) {
     onVideoError,
     onVideoProgress,
   };
+
+  useEffect(() => {
+    const customSettings = localStorage.getItem('appSettings');
+    if (customSettings) {
+      const parsedSettings: AppSettings = JSON.parse(customSettings);
+      setAppSettings(parsedSettings);
+      setIsPlaying(parsedSettings.background.autoPlay);
+      setIsMuted(parsedSettings.background.autoPlay ? true : false);
+      setLooping(parsedSettings.background.playOrder == 1);
+    }
+  }, []);
 
   useEffect(() => {
     setDisplayTime(totalSeconds);

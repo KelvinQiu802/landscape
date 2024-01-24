@@ -36,6 +36,7 @@ function SettingsPage() {
 
   const onSubmit: SubmitHandler<AppSettings> = (data) => {
     setAppSettings(data);
+    localStorage.setItem('appSettings', JSON.stringify(data));
     setShowSnackbar(true);
   };
 
