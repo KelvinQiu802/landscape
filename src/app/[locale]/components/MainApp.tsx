@@ -151,6 +151,7 @@ function MainApp(props: Props) {
 
   const changeVideo = (url: string) => {
     setVideoUrl(url);
+    localStorage.setItem('selectedVideo', url);
   };
 
   /* Youtube config */
@@ -176,6 +177,10 @@ function MainApp(props: Props) {
       setIsPlaying(parsedSettings.background.autoPlay);
       setIsMuted(parsedSettings.background.autoPlay ? true : false);
       setLooping(parsedSettings.background.playOrder == 1);
+    }
+    const selectedVideo = localStorage.getItem('selectedVideo');
+    if (selectedVideo) {
+      setVideoUrl(selectedVideo);
     }
   }, []);
 
