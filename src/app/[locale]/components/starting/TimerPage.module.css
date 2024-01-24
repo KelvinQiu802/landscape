@@ -19,3 +19,12 @@
 .task {
   width: 70%;
 }
+
+.hints {
+  position: relative;
+  top: 60px;
+}
+
+.hint {
+  color: rgba(255, 255, 255, 0.7);
+}

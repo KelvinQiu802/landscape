@@ -37,6 +37,11 @@ function TimerPage({
         toggleFullScreen={toggleFullScreen}
         startingScreenBtns={startingScreenBtns}
       />
+      <div className={style.hints}>
+        <div className={style.hint}>
+          • Click the timer to switch between Pomodoro and Break.
+        </div>
+      </div>
     </div>
   );
 }
