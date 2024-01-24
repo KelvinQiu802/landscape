@@ -50,6 +50,7 @@
   color: var(--Text-Secondary);
   margin-left: 10px;
   font-size: 1.1em;
+  width: 68px;
 }
 
 .desc {
