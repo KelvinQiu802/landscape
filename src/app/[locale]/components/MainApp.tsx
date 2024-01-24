@@ -53,6 +53,9 @@ export const AppSettingsContext = createContext<{
 function MainApp(props: Props) {
   const defaultTask = props.task;
   const [appSettings, setAppSettings] = useState(defaultAppSettings);
+  const [timerType, setTimerType] = useState<
+    'pomodoro' | 'shortBreak' | 'longBreak'
+  >('pomodoro');
   const [task, setTask] = useState(defaultTask);
   const [isReady, setIsReady] = useState(false);
   const [isPlaying, setIsPlaying] = useState(appSettings.background.autoPlay);
@@ -156,6 +159,17 @@ function MainApp(props: Props) {
     localStorage.setItem('selectedVideo', url);
   };
 
+  /* pomodoro -> short break -> long break */
+  const changeTimerType = () => {
+    if (timerType == 'pomodoro') {
+      setTimerType('shortBreak');
+    } else if (timerType == 'shortBreak') {
+      setTimerType('longBreak');
+    } else {
+      setTimerType('pomodoro');
+    }
+  };
+
   /* Youtube config */
   const mouseAccess = false;
   const videoConfig: VideoProps = {
@@ -171,20 +185,29 @@ function MainApp(props: Props) {
     onVideoProgress,
   };
 
+  /* handle local storage state */
   useEffect(() => {
     const customSettings = localStorage.getItem('appSettings');
     if (customSettings) {
       const parsedSettings: AppSettings = JSON.parse(customSettings);
       setAppSettings(parsedSettings);
-      setIsPlaying(parsedSettings.background.autoPlay);
-      setIsMuted(parsedSettings.background.autoPlay ? true : false);
-      setLooping(parsedSettings.background.playOrder == 1);
     }
     const selectedVideo = localStorage.getItem('selectedVideo');
     if (selectedVideo) {
       setVideoUrl(selectedVideo);
     }
   }, []);
+
+  useEffect(() => {
+    setIsPlaying(appSettings.background.autoPlay);
+    setIsMuted(appSettings.background.autoPlay ? true : false);
+    setLooping(appSettings.background.playOrder == 1);
+    setTargetTime(appSettings.timer.pomodoro * 60);
+  }, [appSettings]);
+
+  useEffect(() => {
+    setTargetTime(appSettings.timer[timerType] * 60);
+  }, [timerType]);
 
   useEffect(() => {
     setDisplayTime(totalSeconds);
@@ -226,6 +249,7 @@ function MainApp(props: Props) {
                         setTask={setTask}
                         startClockMode={startClockMode}
                         timerPageText={props.timerPageText}
+                        changeTimerType={changeTimerType}
                       />
                     </div>
                   </Zoom>

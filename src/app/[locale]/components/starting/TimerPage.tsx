@@ -29,6 +29,7 @@ function TimerPage({
   startClockMode,
   defaultTask,
   timerPageText,
+  changeTimerType,
 }: TimerPageProps) {
   return (
     <div className={style.central}>
@@ -37,7 +38,11 @@ function TimerPage({
         <Seperator width="100%" />
       </div>
       <div className={style.timer}>
-        <Timer time={time} setTime={setTime} />
+        <Timer
+          time={time}
+          setTime={setTime}
+          changeTimerType={changeTimerType}
+        />
       </div>
       <StartingScreenBtns
         startClockMode={startClockMode}
