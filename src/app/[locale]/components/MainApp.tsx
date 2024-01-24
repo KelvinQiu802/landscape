@@ -29,7 +29,7 @@ import FocusScreen from './focusing/FocusScreen';
 import { FocusScreenBtnsText } from './focusing/FocusScreenBtns';
 import MediaButtons from './general/MediaButtons';
 import Window from './general/Window';
-import SettingsPage from './settings/SettingsPage';
+import SettingsPage, { SettingsPageText } from './settings/SettingsPage';
 import LeftControlBar from './starting/LeftControlBar';
 import { StartingScreenBtnsText } from './starting/StartingScreenBtns';
 import TimerPage from './starting/TimerPage';
@@ -39,7 +39,8 @@ interface Props
   extends TopBarProps,
     StartingScreenBtnsText,
     FocusScreenBtnsText,
-    ClockModeBtnsText {
+    ClockModeBtnsText,
+    SettingsPageText {
   task: string;
 }
 
@@ -239,7 +240,7 @@ function MainApp(props: Props) {
                 {selectedTag == 2 && (
                   <Zoom in={selectedTag == 2}>
                     <div className={style.central}>
-                      <SettingsPage />
+                      <SettingsPage settingsPageText={props.settingsPageText} />
                     </div>
                   </Zoom>
                 )}

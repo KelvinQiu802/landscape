@@ -12,6 +12,25 @@
     "mute": "静音",
     "unmute": "声音开",
     "exit": "退出",
-    "hideButtons": "隐藏按钮"
+    "hideButtons": "隐藏按钮",
+    "timer": "计时器",
+    "pomodoro": "番茄",
+    "shortBreak": "小休息",
+    "longBreak": "大休息",
+    "mins": "分钟",
+    "backgroundVideo": "背景视频",
+    "autoPlay": "自动播放",
+    "autoPlayHint": "自动播放会将视频设置为静音",
+    "playOrder": "播放顺序",
+    "random": "随机",
+    "loop": "循环",
+    "sequential": "顺序",
+    "countdownAlarm": "倒计时提醒",
+    "type": "类型",
+    "play": "播放",
+    "volume": "音量",
+    "inputError": "设置项不能为空!",
+    "saveAndApply": "保存并应用",
+    "saved": "已保存!"
   }
 }

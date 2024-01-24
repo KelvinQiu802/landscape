@@ -12,6 +12,25 @@
     "mute": "Mute",
     "unmute": "Unmute",
     "exit": "Exit",
-    "hideButtons": "Hide Buttons"
+    "hideButtons": "Hide Buttons",
+    "timer": "Timer",
+    "pomodoro": "Pomodoro",
+    "shortBreak": "Short Break",
+    "longBreak": "Long Break",
+    "mins": "mins",
+    "backgroundVideo": "Background Video",
+    "autoPlay": "Autoplay",
+    "autoPlayHint": "Autoplay will mute the video by default.",
+    "playOrder": "Play Order",
+    "random": "Random",
+    "loop": "Loop",
+    "sequential": "Sequential",
+    "countdownAlarm": "Countdown Alarm",
+    "type": "Type",
+    "play": "Play",
+    "volume": "Volume",
+    "inputError": "All input fields must not be empty!",
+    "saveAndApply": "Save and Apply",
+    "saved": "Saved and Applied!"
   }
 }

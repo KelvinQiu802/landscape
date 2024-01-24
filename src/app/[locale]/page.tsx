@@ -30,6 +30,27 @@ export default function Home() {
           mute: t('mute'),
           unmute: t('unmute'),
         }}
+        settingsPageText={{
+          timer: t('timer'),
+          pomodoro: t('pomodoro'),
+          shortBreak: t('shortBreak'),
+          longBreak: t('longBreak'),
+          mins: t('mins'),
+          backgroundVideo: t('backgroundVideo'),
+          autoPlay: t('autoPlay'),
+          autoPlayHint: t('autoPlayHint'),
+          playOrder: t('playOrder'),
+          random: t('random'),
+          loop: t('loop'),
+          sequential: t('sequential'),
+          countdownAlarm: t('countdownAlarm'),
+          type: t('type'),
+          play: t('play'),
+          volume: t('volume'),
+          inputError: t('inputError'),
+          saveAndApply: t('saveAndApply'),
+          saved: t('saved'),
+        }}
       />
     </div>
   );
