@@ -2,6 +2,7 @@ import alarmList from '@/data/alarm.json';
 import { Alarm, AppSettings } from '@/index';
 import { VolumeDown, VolumeUp } from '@mui/icons-material';
 import CheckIcon from '@mui/icons-material/Check';
+import HeadphonesIcon from '@mui/icons-material/Headphones';
 import {
   FormControlLabel,
   Radio,
@@ -12,6 +13,8 @@ import {
 } from '@mui/material';
 import { useContext, useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
+// @ts-ignore
+import useSound from 'use-sound';
 import { AppSettingsContext } from '../MainApp';
 import Button from '../general/Button';
 import InputWithLabel from '../general/InputWithLabel';
@@ -21,6 +24,11 @@ import style from './SettingsPage.module.css';
 function SettingsPage() {
   const { appSettings, setAppSettings } = useContext(AppSettingsContext);
   const [showSnackbar, setShowSnackbar] = useState(false);
+  const [previewSound, setPreviewSound] = useState(appSettings.alarm.type);
+  const [previewVolume, setPreviewVolume] = useState(appSettings.alarm.volume);
+  const [playSoundPreview] = useSound(`/sounds/${previewSound}`, {
+    volume: previewVolume,
+  });
   const { register, watch, handleSubmit, formState, control } =
     useForm<AppSettings>({
       defaultValues: appSettings,
@@ -113,8 +121,17 @@ function SettingsPage() {
                   label={alarm.name}
                   value={alarm.fileName}
                   control={<Radio />}
+                  onClick={() => {
+                    setPreviewSound(alarm.fileName);
+                  }}
                 />
               ))}
+              <Button
+                label="Play"
+                hideBg
+                icon={HeadphonesIcon}
+                onClick={playSoundPreview}
+              />
             </RadioGroup>
           )}
         />
@@ -131,7 +148,11 @@ function SettingsPage() {
                 step={0.1}
                 sx={{ width: 150 }}
                 value={field.value}
-                onChange={(e, v) => field.onChange(v)}
+                onChange={(e, v) => {
+                  field.onChange(v);
+                  setPreviewVolume(v as number);
+                }}
+                onChangeCommitted={playSoundPreview}
               />
             )}
           />
