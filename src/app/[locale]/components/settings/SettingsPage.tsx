@@ -14,6 +14,7 @@ import {
 import { useContext, useState } from 'react';
 import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 // @ts-ignore
+import { useRouter } from '@/utils/navigation';
 import useSound from 'use-sound';
 import { AppSettingsContext } from '../MainApp';
 import Button from '../general/Button';
@@ -46,6 +47,7 @@ export interface SettingsPageText {
 }
 
 function SettingsPage({ settingsPageText }: SettingsPageText) {
+  const locale = document.documentElement.lang;
   const { appSettings, setAppSettings } = useContext(AppSettingsContext);
   const [showSnackbar, setShowSnackbar] = useState(false);
   const [previewSound, setPreviewSound] = useState(appSettings.alarm.type);
@@ -53,6 +55,7 @@ function SettingsPage({ settingsPageText }: SettingsPageText) {
   const [playSoundPreview] = useSound(`/sounds/${previewSound}`, {
     volume: previewVolume,
   });
+  const router = useRouter();
   const { register, watch, handleSubmit, formState, control } =
     useForm<AppSettings>({
       defaultValues: appSettings,
@@ -199,6 +202,20 @@ function SettingsPage({ settingsPageText }: SettingsPageText) {
         </Stack>
       </div>
       <div className={style.last}></div>
+      {/* Language isn't included in the settings, not necessary */}
+      <div className={style.title}>Language</div>
+      <div className={style.tab}>
+        <RadioGroup
+          value={locale}
+          onChange={(e, v) => {
+            router.push('/', { locale: v });
+          }}
+          row
+        >
+          <FormControlLabel label="English" control={<Radio />} value={'en'} />
+          <FormControlLabel label="中文" control={<Radio />} value={'zh'} />
+        </RadioGroup>
+      </div>
       <div className={`${style.flexRow} ${style.spaceBetween}`}>
         {formState.errors.timer ? (
           <div className={style.error}>{settingsPageText.inputError}</div>
