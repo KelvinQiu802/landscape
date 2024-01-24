@@ -29,12 +29,20 @@ function ClockModeScreen(props: ClockScreenProps) {
     }
   };
 
-  dayjs.locale(document.documentElement.lang);
+  const locale = document.documentElement.lang;
+
+  dayjs.locale(locale);
   dayjs.extend(LocalizedFormat);
   dayjs.extend(AdvancedFormat);
 
   useEffect(() => {
-    setDate(dayjs().format('dddd, MMMM Do'));
+    if (locale == 'zh') {
+      setDate(dayjs().format('MMM Do, dddd'));
+    } else if (locale == 'en') {
+      setDate(dayjs().format('dddd, MMMM Do'));
+    } else {
+      setDate('Please configure local preference');
+    }
     setTime(dayjs().format('LT'));
   }, [seconds]);
 
