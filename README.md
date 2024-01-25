@@ -11,7 +11,7 @@
   <p align="center">
 	Pomodoro Timer with Dynamic Video Background
     <br />
-    <a href="https://github.com/kelvinqiu802/landscape">View Demo (TODO)</a>
+    <a href="https://landscape-pomodoro.vercel.app">View Demo</a>
     ·
     <a href="https://github.com/kelvinqiu802/landscape/issues">Report Bug</a>
     ·
