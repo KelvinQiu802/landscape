@@ -21,7 +21,7 @@ dependencies:
     specifier: ^1.11.10
     version: 1.11.10
   next:
-    specifier: '14.1'
+    specifier: 14.1.0
     version: 14.1.0(react-dom@18.2.0)(react@18.2.0)
   next-intl:
     specifier: ^3.4.4
