@@ -19,14 +19,24 @@
   </p>
 </div>
 
-[![Forks][forks-shield]][forks-url]
-[![Issues][issues-shield]][issues-url]
-[![Stargazers][stars-shield]][stars-url]
-[![MIT License][license-shield]][license-url]
+<p align="center">
+  <a href="https://github.com/kelvinqiu802/landscape/network/members">
+    <img src="https://img.shields.io/github/forks/kelvinqiu802/landscape.svg?style=for-the-badge" alt="Forks"/>
+  </a>
+  <a href="https://github.com/kelvinqiu802/landscape/issues">
+    <img src="https://img.shields.io/github/issues/kelvinqiu802/landscape.svg?style=for-the-badge" alt="Issues"/>
+  </a>
+  <a href="https://github.com/kelvinqiu802/landscape/stargazers">
+    <img src="https://img.shields.io/github/stars/kelvinqiu802/landscape.svg?style=for-the-badge" alt="Stars"/>
+  </a>
+  <a href="https://github.com/kelvinqiu802/landscape/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/kelvinqiu802/landscape.svg?style=for-the-badge" alt="License"/>
+  </a>
+</p>
 
 ## About The Project
 
-![Landscape Screen Shot][product-screenshot]
+![Landscape Screen Shot](./images/screenshot.png)
 
 Landscape Pomodoro is like having your own Pomodoro Timer, complete with beautiful background videos and calming sounds. Use it as your second screen to enhance your work efficiency in a relaxed and enjoyable manner.
 
@@ -74,21 +84,3 @@ Distributed under the `MIT` License. See `LICENSE` for more information.
 ## Contact
 
 KelvinQiu - kelvinqiu802@outlook.com
-
-[contributors-shield]: https://img.shields.io/github/contributors/kelvinqiu802/landscape.svg?style=for-the-badge
-[contributors-url]: https://github.com/kelvinqiu802/landscape/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/kelvinqiu802/landscape.svg?style=for-the-badge
-[forks-url]: https://github.com/kelvinqiu802/landscape/network/members
-[stars-shield]: https://img.shields.io/github/stars/kelvinqiu802/landscape.svg?style=for-the-badge
-[stars-url]: https://github.com/kelvinqiu802/landscape/stargazers
-[issues-shield]: https://img.shields.io/github/issues/kelvinqiu802/landscape.svg?style=for-the-badge
-[issues-url]: https://github.com/kelvinqiu802/landscape/issues
-[license-shield]: https://img.shields.io/github/license/kelvinqiu802/landscape.svg?style=for-the-badge
-[license-url]: https://github.com/kelvinqiu802/landscape/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
