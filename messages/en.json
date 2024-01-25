@@ -34,5 +34,10 @@
     "saved": "Saved and Applied!",
     "switchTimeHint": "Click the timer to switch between Pomodoro and Break.",
     "language": "Language"
+  },
+  "Metadata": {
+    "title": "Landscape Pomodoro",
+    "desc": "Landscape Pomodoro integrates time management with mindfulness, elevating efficiency while introducing a touch of natural tranquility to the work environment.",
+    "keywords": "tomato timer, focus, timer, ambient sound, video background, scenery, study"
   }
 }
